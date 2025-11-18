@@ -41,7 +41,7 @@
             overflow-x: hidden;
             position: relative;
         }
-        
+
         body::before {
             content: '';
             position: fixed;
@@ -50,7 +50,7 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1), transparent),
-                        radial-gradient(circle at 80% 80%, rgba(72, 209, 204, 0.1), transparent);
+                radial-gradient(circle at 80% 80%, rgba(72, 209, 204, 0.1), transparent);
             pointer-events: none;
             z-index: 0;
         }
@@ -149,7 +149,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -160,12 +160,25 @@
             background: radial-gradient(circle, rgba(102, 126, 234, 0.1), transparent);
             animation: float 20s infinite ease-in-out;
         }
-        
+
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(50px, 50px) rotate(90deg); }
-            50% { transform: translate(0, 100px) rotate(180deg); }
-            75% { transform: translate(-50px, 50px) rotate(270deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(50px, 50px) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(0, 100px) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(-50px, 50px) rotate(270deg);
+            }
         }
 
         .hero-content {
@@ -191,12 +204,13 @@
             gap: 10px;
             animation: slideInLeft 1s ease-out;
         }
-        
+
         @keyframes slideInLeft {
             from {
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -223,27 +237,36 @@
             background-clip: text;
             animation: slideInRight 1s ease-out;
         }
-        
+
         @keyframes slideInRight {
             from {
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
-        
+
         #my-typer {
             display: inline-block;
             border-right: 3px solid #667eea;
             animation: blink 0.7s infinite;
         }
-        
+
         @keyframes blink {
-            0%, 50% { border-color: #667eea; }
-            51%, 100% { border-color: transparent; }
+
+            0%,
+            50% {
+                border-color: #667eea;
+            }
+
+            51%,
+            100% {
+                border-color: transparent;
+            }
         }
 
         .hero-text p {
@@ -253,10 +276,15 @@
             color: #E0E0E0;
             animation: fadeIn 1.5s ease-out;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .contact-btn {
@@ -275,7 +303,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .contact-btn::before {
             content: '';
             position: absolute;
@@ -286,7 +314,7 @@
             background: rgba(255, 255, 255, 0.2);
             transition: left 0.5s ease;
         }
-        
+
         .contact-btn:hover::before {
             left: 100%;
         }
@@ -326,12 +354,19 @@
             animation: float-image 6s ease-in-out infinite;
             transition: all 0.3s ease;
         }
-        
+
         @keyframes float-image {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
-        
+
         .hero-image img:hover {
             transform: scale(1.05);
             box-shadow: 0 15px 50px rgba(102, 126, 234, 0.7);
@@ -399,11 +434,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YJM0W7S8"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-83YJM0W7S8');
+    gtag('config', 'G-83YJM0W7S8');
 </script>
 
 <body>
@@ -475,11 +510,14 @@
 
     <section id="Skills" class="section py-5"
         style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%239C92AC&quot; fill-opacity=&quot;0.4&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%239C92AC&quot; fill-opacity=&quot;0.4&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+        </div>
         <div class="container" style="position: relative; z-index: 1;">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center mb-5">
-                    <h2 class="text-white fw-bold display-4 mb-3" style="animation: fadeInDown 1s ease-out;">My Technical Skills</h2>
+                    <h2 class="text-white fw-bold display-4 mb-3" style="animation: fadeInDown 1s ease-out;">My
+                        Technical Skills</h2>
                     <p class="text-white fs-5" style="opacity: 0.9;">Proficiency in modern programming languages,
                         tools, and methodologies.</p>
                 </div>
@@ -487,13 +525,15 @@
             <div class="row">
                 <!-- Programming Languages with Progress Bars -->
                 <div class="col-md-6 mb-4" style="animation: fadeInLeft 1s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">💻</span>
                             C++
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="C++ Skill" aria-valuenow="95"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 95%; font-size: 1rem; background: linear-gradient(90deg, #667eea, #764ba2); animation: progress-animate 2s ease-in-out;">
                                 95%</div>
@@ -501,13 +541,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInRight 1s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">🔷</span>
                             C#
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="C# Skill" aria-valuenow="80"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 80%; font-size: 1rem; background: linear-gradient(90deg, #f093fb, #f5576c); animation: progress-animate 2s ease-in-out;">
                                 80%</div>
@@ -515,13 +557,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInLeft 1.2s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">🎯</span>
                             Dart
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="Dart Skill" aria-valuenow="88"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 90%; font-size: 1rem; background: linear-gradient(90deg, #4facfe, #00f2fe); animation: progress-animate 2s ease-in-out;">
                                 90%</div>
@@ -529,13 +573,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInRight 1.2s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">🦋</span>
                             Flutter
                         </h5>
-                        <div class="progress rounded-pill" role="progressbar" aria-label="Flutter Skill" aria-valuenow="92"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                        <div class="progress rounded-pill" role="progressbar" aria-label="Flutter Skill"
+                            aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 92%; font-size: 1rem; background: linear-gradient(90deg, #43e97b, #38f9d7); animation: progress-animate 2s ease-in-out;">
                                 92%</div>
@@ -543,13 +589,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInLeft 1.4s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">⚡</span>
                             Bash
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="Bash Skill" aria-valuenow="70"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 70%; font-size: 1rem; background: linear-gradient(90deg, #fa709a, #fee140); animation: progress-animate 2s ease-in-out;">
                                 70%</div>
@@ -557,13 +605,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInRight 1.4s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">⚙️</span>
                             C
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="C Skill" aria-valuenow="75"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 75%; font-size: 1rem; background: linear-gradient(90deg, #667eea, #764ba2); animation: progress-animate 2s ease-in-out;">
                                 75%</div>
@@ -571,13 +621,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInLeft 1.6s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">🗄️</span>
                             SQL
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="SQL Skill" aria-valuenow="87"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 90%; font-size: 1rem; background: linear-gradient(90deg, #f093fb, #f5576c); animation: progress-animate 2s ease-in-out;">
                                 90%</div>
@@ -585,13 +637,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInRight 1.6s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">🌐</span>
                             HTML
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="HTML Skill" aria-valuenow="90"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 90%; font-size: 1rem; background: linear-gradient(90deg, #4facfe, #00f2fe); animation: progress-animate 2s ease-in-out;">
                                 90%</div>
@@ -599,13 +653,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInLeft 1.8s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">🎨</span>
                             CSS
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="CSS Skill" aria-valuenow="90"
-                            aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 90%; font-size: 1rem; background: linear-gradient(90deg, #43e97b, #38f9d7); animation: progress-animate 2s ease-in-out;">
                                 90%</div>
@@ -613,13 +669,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" style="animation: fadeInRight 1.8s ease-out;">
-                    <div class="skill-item p-3 rounded" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div class="skill-item p-3 rounded"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: all 0.3s ease;">
                         <h5 class="text-white mb-3 d-flex align-items-center">
                             <span class="skill-icon me-2" style="font-size: 1.5rem;">⚡</span>
                             JavaScript
                         </h5>
                         <div class="progress rounded-pill" role="progressbar" aria-label="JavaScript Skill"
-                            aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="height: 25px; background: rgba(255, 255, 255, 0.1);">
+                            aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                            style="height: 25px; background: rgba(255, 255, 255, 0.1);">
                             <div class="progress-bar text-dark fw-bold"
                                 style="width: 70%; font-size: 1rem; background: linear-gradient(90deg, #fa709a, #fee140); animation: progress-animate 2s ease-in-out;">
                                 70%</div>
@@ -633,7 +691,8 @@
                     <h3 class="text-white fw-bold mb-4 text-center" style="font-size: 2rem;">Other Proficiencies</h3>
                     <div class="row g-3">
                         <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="proficiency-card p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="proficiency-card p-3 rounded h-100"
+                                style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-check-circle me-3" style="font-size: 1.8rem; color: #667eea;"></i>
                                     <h5 class="text-white mb-0">Software Requirement Analysis</h5>
@@ -641,7 +700,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="proficiency-card p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="proficiency-card p-3 rounded h-100"
+                                style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-check-circle me-3" style="font-size: 1.8rem; color: #764ba2;"></i>
                                     <h5 class="text-white mb-0">Software Requirement Gathering</h5>
@@ -649,7 +709,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="proficiency-card p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="proficiency-card p-3 rounded h-100"
+                                style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div class="d-flex align-items-center">
                                     <i class="fab fa-github me-3" style="font-size: 1.8rem; color: #667eea;"></i>
                                     <h5 class="text-white mb-0">GitHub</h5>
@@ -657,7 +718,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="proficiency-card p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="proficiency-card p-3 rounded h-100"
+                                style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-sync-alt me-3" style="font-size: 1.8rem; color: #764ba2;"></i>
                                     <h5 class="text-white mb-0">Agile Methodologies</h5>
@@ -665,7 +727,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="proficiency-card p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="proficiency-card p-3 rounded h-100"
+                                style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-network-wired me-3" style="font-size: 1.8rem; color: #667eea;"></i>
                                     <h5 class="text-white mb-0">RESTful APIs</h5>
@@ -673,7 +736,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="proficiency-card p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="proficiency-card p-3 rounded h-100"
+                                style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-cogs me-3" style="font-size: 1.8rem; color: #764ba2;"></i>
                                     <h5 class="text-white mb-0">State Management</h5>
@@ -681,7 +745,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="proficiency-card p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="proficiency-card p-3 rounded h-100"
+                                style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-mobile-alt me-3" style="font-size: 1.8rem; color: #667eea;"></i>
                                     <h5 class="text-white mb-0">App Development</h5>
@@ -689,7 +754,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="proficiency-card p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="proficiency-card p-3 rounded h-100"
+                                style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-fire me-3" style="font-size: 1.8rem; color: #764ba2;"></i>
                                     <h5 class="text-white mb-0">Firebase</h5>
@@ -712,34 +778,37 @@
                 width: attr(data-width);
             }
         }
-        
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
                 transform: translateY(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes fadeInLeft {
             from {
                 opacity: 0;
                 transform: translateX(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
-        
+
         @keyframes fadeInRight {
             from {
                 opacity: 0;
                 transform: translateX(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -751,7 +820,7 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
-        
+
         .proficiency-card:hover {
             background: rgba(255, 255, 255, 0.12) !important;
             transform: translateY(-5px);
@@ -768,11 +837,14 @@
 
     <section id="Portfolio"
         style="padding: 80px 0; background: linear-gradient(135deg, #0f3460, #16213e, #1a1a2e); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background: url('data:image/svg+xml,%3Csvg width=&quot;100&quot; height=&quot;100&quot; viewBox=&quot;0 0 100 100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z&quot; fill=&quot;%23667eea&quot; fill-opacity=&quot;0.4&quot; fill-rule=&quot;evenodd&quot;/%3E%3C/svg%3E');"></div>
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background: url('data:image/svg+xml,%3Csvg width=&quot;100&quot; height=&quot;100&quot; viewBox=&quot;0 0 100 100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z&quot; fill=&quot;%23667eea&quot; fill-opacity=&quot;0.4&quot; fill-rule=&quot;evenodd&quot;/%3E%3C/svg%3E');">
+        </div>
         <div class="container" style="position: relative; z-index: 1;">
             <div class="row text-center mb-5">
                 <div class="col">
-                    <h1 class="text-white fw-bold display-4 mb-3" style="animation: fadeInDown 1s ease-out;">Projects & Achievements</h1>
+                    <h1 class="text-white fw-bold display-4 mb-3" style="animation: fadeInDown 1s ease-out;">Projects &
+                        Achievements</h1>
                     <p class="text-white fs-5" style="opacity: 0.9;">Showcasing My Projects, Skills, and Creativity</p>
                 </div>
             </div>
@@ -780,7 +852,8 @@
             <!-- Project 1 -->
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-card card border-0 rounded-4 h-100" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <span style="font-size: 2rem; margin-right: 10px;">📚</span>
@@ -792,18 +865,25 @@
                                 return books.
                             </p>
                             <div class="mt-3 mb-3">
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(102, 126, 234, 0.3); color: #fff; font-size: 0.85rem;">Flutter</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(118, 75, 162, 0.3); color: #fff; font-size: 0.85rem;">Dart</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(102, 126, 234, 0.3); color: #fff; font-size: 0.85rem;">Database</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(102, 126, 234, 0.3); color: #fff; font-size: 0.85rem;">Flutter</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(118, 75, 162, 0.3); color: #fff; font-size: 0.85rem;">Dart</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(102, 126, 234, 0.3); color: #fff; font-size: 0.85rem;">Database</span>
                             </div>
                         </div>
 
-                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Library-Management-System" target="_blank" style="text-decoration: none;">
+                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Library-Management-System" target="_blank"
+                            style="text-decoration: none;">
                             <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
                                 <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/photo-1507842217343-583bb7270b66.jpg"
-                                    class="card-img-bottom" alt="Library Management System" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
-                                <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project →</span>
+                                    class="card-img-bottom" alt="Library Management System"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
                                 </div>
                             </div>
                         </a>
@@ -812,7 +892,8 @@
 
                 <!-- Project 2 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-card card border-0 rounded-4 h-100" style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(245, 87, 108, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(245, 87, 108, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <span style="font-size: 2rem; margin-right: 10px;">💱</span>
@@ -827,18 +908,26 @@
                                 user experience.
                             </p>
                             <div class="mt-3 mb-3">
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(240, 147, 251, 0.3); color: #fff; font-size: 0.85rem;">Flutter</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(245, 87, 108, 0.3); color: #fff; font-size: 0.85rem;">Dart</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(240, 147, 251, 0.3); color: #fff; font-size: 0.85rem;">RESTful API</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(240, 147, 251, 0.3); color: #fff; font-size: 0.85rem;">Flutter</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(245, 87, 108, 0.3); color: #fff; font-size: 0.85rem;">Dart</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(240, 147, 251, 0.3); color: #fff; font-size: 0.85rem;">RESTful
+                                    API</span>
                             </div>
                         </div>
 
-                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Currency-Convertor" target="_blank" style="text-decoration: none;">
+                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Currency-Convertor" target="_blank"
+                            style="text-decoration: none;">
                             <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
                                 <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Currency%20Convertor.jpg"
-                                    class="card-img-bottom" alt="Currency Converter" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
-                                <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(240, 147, 251, 0.8), rgba(245, 87, 108, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project →</span>
+                                    class="card-img-bottom" alt="Currency Converter"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(240, 147, 251, 0.8), rgba(245, 87, 108, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
                                 </div>
                             </div>
                         </a>
@@ -847,7 +936,8 @@
 
                 <!-- Project 3 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-card card border-0 rounded-4 h-100" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <span style="font-size: 2rem; margin-right: 10px;">🧮</span>
@@ -865,8 +955,10 @@
                                 calculations on the go.
                             </p>
                             <div class="mt-3 mb-3">
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(79, 172, 254, 0.3); color: #fff; font-size: 0.85rem;">Flutter</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(0, 242, 254, 0.3); color: #fff; font-size: 0.85rem;">Dart</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(79, 172, 254, 0.3); color: #fff; font-size: 0.85rem;">Flutter</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(0, 242, 254, 0.3); color: #fff; font-size: 0.85rem;">Dart</span>
                             </div>
                         </div>
 
@@ -874,9 +966,12 @@
                             target="_blank" style="text-decoration: none;">
                             <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
                                 <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/closeup-shot-entrepreneur-working-from-home-doing-calculations.jpg"
-                                    class="card-img-bottom" alt="Calculator" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
-                                <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(79, 172, 254, 0.8), rgba(0, 242, 254, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project →</span>
+                                    class="card-img-bottom" alt="Calculator"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(79, 172, 254, 0.8), rgba(0, 242, 254, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
                                 </div>
                             </div>
                         </a>
@@ -884,7 +979,8 @@
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-card card border-0 rounded-4 h-100" style="background: linear-gradient(135deg, rgba(67, 233, 123, 0.1), rgba(56, 249, 215, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(67, 233, 123, 0.1), rgba(56, 249, 215, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <span style="font-size: 2rem; margin-right: 10px;">📱</span>
@@ -900,18 +996,25 @@
                                 Graph data structures.
                             </p>
                             <div class="mt-3 mb-3">
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(67, 233, 123, 0.3); color: #fff; font-size: 0.85rem;">C++</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(56, 249, 215, 0.3); color: #fff; font-size: 0.85rem;">OOP</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(67, 233, 123, 0.3); color: #fff; font-size: 0.85rem;">Graphs</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(67, 233, 123, 0.3); color: #fff; font-size: 0.85rem;">C++</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(56, 249, 215, 0.3); color: #fff; font-size: 0.85rem;">OOP</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(67, 233, 123, 0.3); color: #fff; font-size: 0.85rem;">Graphs</span>
                             </div>
                         </div>
 
-                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Mini-Instagram" target="_blank" style="text-decoration: none;">
+                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Mini-Instagram" target="_blank"
+                            style="text-decoration: none;">
                             <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
                                 <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/download.jpg"
-                                    class="card-img-bottom" alt="Mini Instagram" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
-                                <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(67, 233, 123, 0.8), rgba(56, 249, 215, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project →</span>
+                                    class="card-img-bottom" alt="Mini Instagram"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(67, 233, 123, 0.8), rgba(56, 249, 215, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
                                 </div>
                             </div>
                         </a>
@@ -919,7 +1022,8 @@
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-card card border-0 rounded-4 h-100" style="background: linear-gradient(135deg, rgba(250, 112, 154, 0.1), rgba(254, 225, 64, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(250, 112, 154, 0.1), rgba(254, 225, 64, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <span style="font-size: 2rem; margin-right: 10px;">📇</span>
@@ -936,17 +1040,23 @@
                                 addresses in a structured manner.
                             </p>
                             <div class="mt-3 mb-3">
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(250, 112, 154, 0.3); color: #fff; font-size: 0.85rem;">C++</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(254, 225, 64, 0.3); color: #fff; font-size: 0.85rem;">OOP</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(250, 112, 154, 0.3); color: #fff; font-size: 0.85rem;">C++</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(254, 225, 64, 0.3); color: #fff; font-size: 0.85rem;">OOP</span>
                             </div>
                         </div>
 
-                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Contact-Book" target="_blank" style="text-decoration: none;">
+                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Contact-Book" target="_blank"
+                            style="text-decoration: none;">
                             <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
                                 <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Terminal3.jpg"
-                                    class="card-img-bottom" alt="Contact Book" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
-                                <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(250, 112, 154, 0.8), rgba(254, 225, 64, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project →</span>
+                                    class="card-img-bottom" alt="Contact Book"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(250, 112, 154, 0.8), rgba(254, 225, 64, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
                                 </div>
                             </div>
                         </a>
@@ -954,7 +1064,8 @@
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-card card border-0 rounded-4 h-100" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <span style="font-size: 2rem; margin-right: 10px;">📊</span>
@@ -970,18 +1081,25 @@
                                 for easy grade tracking.
                             </p>
                             <div class="mt-3 mb-3">
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(102, 126, 234, 0.3); color: #fff; font-size: 0.85rem;">HTML</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(118, 75, 162, 0.3); color: #fff; font-size: 0.85rem;">CSS</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(102, 126, 234, 0.3); color: #fff; font-size: 0.85rem;">JavaScript</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(102, 126, 234, 0.3); color: #fff; font-size: 0.85rem;">HTML</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(118, 75, 162, 0.3); color: #fff; font-size: 0.85rem;">CSS</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(102, 126, 234, 0.3); color: #fff; font-size: 0.85rem;">JavaScript</span>
                             </div>
                         </div>
 
-                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/CGPA-Calculator" target="_blank" style="text-decoration: none;">
+                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/CGPA-Calculator" target="_blank"
+                            style="text-decoration: none;">
                             <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
                                 <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Cgpa3%20(1).jpg"
-                                    class="card-img-bottom" alt="CGPA Calculator" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
-                                <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project →</span>
+                                    class="card-img-bottom" alt="CGPA Calculator"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
                                 </div>
                             </div>
                         </a>
@@ -989,7 +1107,8 @@
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-card card border-0 rounded-4 h-100" style="background: linear-gradient(135deg, rgba(43, 192, 228, 0.1), rgba(234, 236, 198, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(43, 192, 228, 0.1), rgba(234, 236, 198, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <span style="font-size: 2rem; margin-right: 10px;">🎮</span>
@@ -1001,18 +1120,25 @@
                                 and view purchase history. Built with modern web technologies.
                             </p>
                             <div class="mt-3 mb-3">
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(43, 192, 228, 0.3); color: #fff; font-size: 0.85rem;">Node.js</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(234, 236, 198, 0.3); color: #fff; font-size: 0.85rem;">Express.js</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(43, 192, 228, 0.3); color: #fff; font-size: 0.85rem;">MySQL</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(43, 192, 228, 0.3); color: #fff; font-size: 0.85rem;">Node.js</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(234, 236, 198, 0.3); color: #fff; font-size: 0.85rem;">Express.js</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(43, 192, 228, 0.3); color: #fff; font-size: 0.85rem;">MySQL</span>
                             </div>
                         </div>
 
-                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Game-Store" target="_blank" style="text-decoration: none;">
+                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Game-Store" target="_blank"
+                            style="text-decoration: none;">
                             <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
                                 <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Game Store.jpg"
-                                    class="card-img-bottom" alt="Game Store" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
-                                <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(43, 192, 228, 0.8), rgba(234, 236, 198, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project →</span>
+                                    class="card-img-bottom" alt="Game Store"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(43, 192, 228, 0.8), rgba(234, 236, 198, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
                                 </div>
                             </div>
                         </a>
@@ -1020,7 +1146,8 @@
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-card card border-0 rounded-4 h-100" style="background: linear-gradient(135deg, rgba(127, 255, 212, 0.1), rgba(245, 245, 245, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(127, 255, 212, 0.1), rgba(245, 245, 245, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <span style="font-size: 2rem; margin-right: 10px;">🌍</span>
@@ -1032,18 +1159,72 @@
                                 This project showcases expertise in data analysis and visualization.
                             </p>
                             <div class="mt-3 mb-3">
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(127, 255, 212, 0.3); color: #fff; font-size: 0.85rem;">Python</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(245, 245, 245, 0.3); color: #fff; font-size: 0.85rem;">Data Analysis</span>
-                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2" style="background: rgba(127, 255, 212, 0.3); color: #fff; font-size: 0.85rem;">Visualization</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(127, 255, 212, 0.3); color: #fff; font-size: 0.85rem;">Python</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(245, 245, 245, 0.3); color: #fff; font-size: 0.85rem;">Data
+                                    Analysis</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(127, 255, 212, 0.3); color: #fff; font-size: 0.85rem;">Visualization</span>
                             </div>
                         </div>
 
-                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Climate-Data-Visualization" target="_blank" style="text-decoration: none;">
+                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Climate-Data-Visualization" target="_blank"
+                            style="text-decoration: none;">
                             <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
                                 <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Climate Change.jpg"
-                                    class="card-img-bottom" alt="Climate Change Analysis" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
-                                <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(127, 255, 212, 0.8), rgba(245, 245, 245, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
-                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project →</span>
+                                    class="card-img-bottom" alt="Climate Change Analysis"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(127, 255, 212, 0.8), rgba(245, 245, 245, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card card border-0 rounded-4 h-100"
+                        style="background: linear-gradient(135deg, rgba(127, 255, 212, 0.1), rgba(245, 245, 245, 0.1)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1) !important; overflow: hidden; transition: all 0.4s ease;">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <span style="font-size: 2rem; margin-right: 10px;">🏠</span>
+                                <h5 class="card-title text-white fw-bold mb-0">🇵🇰 Roomatch Pk (Airbnb for Pakistan)
+                                </h5>
+                            </div>
+                            <p class="card-text text-white" style="opacity: 0.9; line-height: 1.7;">
+                                This is a cross-platform mobile accommodation marketplace built for the Pakistani
+                                market. The application connects hosts with guests (primarily students and visitors)
+                                allowing users to search, filter, and securely book verified rooms and apartments using.
+                                It features a dual-sided interface with a complex Host Dashboard for managing listings and bookings. Built with
+                                modern mobile and backend technologies.
+                            </p>
+                            <div class="mt-3 mb-3">
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(0, 150, 255, 0.4); color: #fff; font-size: 0.85rem;">Flutter</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(0, 150, 255, 0.4); color: #fff; font-size: 0.85rem;">Dart</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(50, 205, 50, 0.4); color: #fff; font-size: 0.85rem;">Next.js
+                                    API</span> <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(255, 165, 0, 0.4); color: #fff; font-size: 0.85rem;">MongoDB</span>
+                                <span class="badge rounded-pill px-3 py-2 me-2 mb-2"
+                                    style="background: rgba(0, 150, 255, 0.4); color: #fff; font-size: 0.85rem;">Provider</span>
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/Hafiz-Muhammad-Rizwan/Climate-Data-Visualization" target="_blank"
+                            style="text-decoration: none;">
+                            <div class="project-image-wrapper" style="position: relative; overflow: hidden;">
+                                <img src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/RoomatchPk.png"
+                                    class="card-img-bottom" alt="Climate Change Analysis"
+                                    style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease;">
+                                <div class="project-overlay"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(127, 255, 212, 0.8), rgba(245, 245, 245, 0.8)); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-size: 1.2rem; font-weight: bold;">View Project
+                                        →</span>
                                 </div>
                             </div>
                         </a>
@@ -1063,30 +1244,35 @@
         .project-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4),
-                        0 0 60px rgba(118, 75, 162, 0.2) !important;
+                0 0 60px rgba(118, 75, 162, 0.2) !important;
             border: 1px solid rgba(102, 126, 234, 0.5) !important;
         }
-        
+
         .project-card:hover .project-image-wrapper img {
             transform: scale(1.1);
         }
-        
+
         .project-card:hover .project-overlay {
             opacity: 1 !important;
         }
-        
+
         .project-image-wrapper {
             cursor: pointer;
         }
     </style>
 
-    <section id="Education" class="py-5" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%239C92AC&quot; fill-opacity=&quot;0.4&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    <section id="Education" class="py-5"
+        style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); position: relative; overflow: hidden;">
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%239C92AC&quot; fill-opacity=&quot;0.4&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+        </div>
         <div class="container" style="position: relative; z-index: 1;">
             <div class="row justify-content-center mb-5">
                 <div class="col-12 col-lg-8 text-center">
-                    <h2 class="fw-bold display-4 text-white mb-3" style="animation: fadeInDown 1s ease-out;">🎓 Education</h2>
-                    <p class="fs-5 text-white" style="opacity: 0.9;">Currently pursuing my Bachelor's degree with a focus on core software
+                    <h2 class="fw-bold display-4 text-white mb-3" style="animation: fadeInDown 1s ease-out;">🎓
+                        Education</h2>
+                    <p class="fs-5 text-white" style="opacity: 0.9;">Currently pursuing my Bachelor's degree with a
+                        focus on core software
                         engineering concepts.</p>
                 </div>
             </div>
@@ -1095,53 +1281,63 @@
                 <div class="col-12 col-md-10 col-lg-8">
                     <div class="education-card shadow-lg border-0 rounded-4"
                         style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15)); backdrop-filter: blur(10px); border: 2px solid rgba(102, 126, 234, 0.3) !important; transition: all 0.4s ease; overflow: hidden; position: relative;">
-                        <div style="position: absolute; top: 0; right: 0; width: 150px; height: 150px; background: radial-gradient(circle, rgba(102, 126, 234, 0.2), transparent); border-radius: 50%; transform: translate(50%, -50%);"></div>
+                        <div
+                            style="position: absolute; top: 0; right: 0; width: 150px; height: 150px; background: radial-gradient(circle, rgba(102, 126, 234, 0.2), transparent); border-radius: 50%; transform: translate(50%, -50%);">
+                        </div>
                         <div class="card-body p-5" style="position: relative; z-index: 1;">
                             <div class="d-flex align-items-center mb-4">
-                                <div class="icon-wrapper me-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);">
+                                <div class="icon-wrapper me-3"
+                                    style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);">
                                     <span style="font-size: 2rem;">🎓</span>
                                 </div>
                                 <div>
                                     <h4 class="text-white fw-bold mb-1">Bachelor of Software Engineering</h4>
-                                    <p class="text-white mb-0" style="opacity: 0.8; font-size: 0.95rem;">2023 - Present</p>
+                                    <p class="text-white mb-0" style="opacity: 0.8; font-size: 0.95rem;">2023 - Present
+                                    </p>
                                 </div>
                             </div>
-                            
+
                             <div class="mb-4 p-3 rounded" style="background: rgba(255, 255, 255, 0.05);">
-                                <p class="text-white mb-2"><strong style="color: #667eea;">🏛️ Institution:</strong> National University of Computer and
+                                <p class="text-white mb-2"><strong style="color: #667eea;">🏛️ Institution:</strong>
+                                    National University of Computer and
                                     Emerging Sciences (NUCES - FAST)</p>
-                                <p class="text-white mb-0"><strong style="color: #764ba2;">📚 Current Semester:</strong> 5th Semester</p>
+
                             </div>
-                            
+
                             <div>
                                 <h5 class="text-white fw-bold mb-3" style="color: #667eea;">💡 Key Strengths:</h5>
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <div class="strength-item p-3 rounded" style="background: rgba(102, 126, 234, 0.1); border-left: 3px solid #667eea; transition: all 0.3s ease;">
+                                        <div class="strength-item p-3 rounded"
+                                            style="background: rgba(102, 126, 234, 0.1); border-left: 3px solid #667eea; transition: all 0.3s ease;">
                                             <span style="color: #667eea; font-size: 1.2rem;">✓</span>
                                             <span class="text-white ms-2">Object-Oriented Programming (OOP)</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="strength-item p-3 rounded" style="background: rgba(118, 75, 162, 0.1); border-left: 3px solid #764ba2; transition: all 0.3s ease;">
+                                        <div class="strength-item p-3 rounded"
+                                            style="background: rgba(118, 75, 162, 0.1); border-left: 3px solid #764ba2; transition: all 0.3s ease;">
                                             <span style="color: #764ba2; font-size: 1.2rem;">✓</span>
                                             <span class="text-white ms-2">Data Structures & Algorithms</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="strength-item p-3 rounded" style="background: rgba(102, 126, 234, 0.1); border-left: 3px solid #667eea; transition: all 0.3s ease;">
+                                        <div class="strength-item p-3 rounded"
+                                            style="background: rgba(102, 126, 234, 0.1); border-left: 3px solid #667eea; transition: all 0.3s ease;">
                                             <span style="color: #667eea; font-size: 1.2rem;">✓</span>
                                             <span class="text-white ms-2">Version Control (Git & GitHub)</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="strength-item p-3 rounded" style="background: rgba(118, 75, 162, 0.1); border-left: 3px solid #764ba2; transition: all 0.3s ease;">
+                                        <div class="strength-item p-3 rounded"
+                                            style="background: rgba(118, 75, 162, 0.1); border-left: 3px solid #764ba2; transition: all 0.3s ease;">
                                             <span style="color: #764ba2; font-size: 1.2rem;">✓</span>
                                             <span class="text-white ms-2">Requirement Gathering & Analysis</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="strength-item p-3 rounded" style="background: rgba(102, 126, 234, 0.1); border-left: 3px solid #667eea; transition: all 0.3s ease;">
+                                        <div class="strength-item p-3 rounded"
+                                            style="background: rgba(102, 126, 234, 0.1); border-left: 3px solid #667eea; transition: all 0.3s ease;">
                                             <span style="color: #667eea; font-size: 1.2rem;">✓</span>
                                             <span class="text-white ms-2">UML & Software Design Patterns</span>
                                         </div>
@@ -1163,10 +1359,10 @@
         .education-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4),
-                        0 0 60px rgba(118, 75, 162, 0.3) !important;
+                0 0 60px rgba(118, 75, 162, 0.3) !important;
             border: 2px solid rgba(102, 126, 234, 0.6) !important;
         }
-        
+
         .strength-item:hover {
             background: rgba(102, 126, 234, 0.2) !important;
             transform: translateX(5px);
@@ -1189,71 +1385,74 @@
     </style>
 
 
-    <section id="Contact" style="background: linear-gradient(135deg, #0f3460, #16213e); padding: 80px 0; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(102, 126, 234, 0.1), transparent); border-radius: 50%;"></div>
+    <section id="Contact"
+        style="background: linear-gradient(135deg, #0f3460, #16213e); padding: 80px 0; position: relative; overflow: hidden;">
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(102, 126, 234, 0.1), transparent); border-radius: 50%;">
+        </div>
         <div class="container" style="position: relative; z-index: 1;">
             <div class="text-center mb-5">
                 <h2 class="display-4 fw-bold text-white mb-3" style="animation: fadeInDown 1s ease-out;">
                     Let's Connect! 🤝
                 </h2>
-                <p class="fs-5 text-white" style="opacity: 0.9;">Feel free to reach out for collaborations or just a friendly chat</p>
+                <p class="fs-5 text-white" style="opacity: 0.9;">Feel free to reach out for collaborations or just a
+                    friendly chat</p>
             </div>
             <div class="d-flex justify-content-center gap-4 flex-wrap">
-                <a href="https://www.linkedin.com/in/hafiz-muhammad-rizwan-862484335/" target="_blank" 
-                   class="social-link" style="text-decoration: none;">
-                    <div class="social-card p-4 rounded-4 text-center" 
-                         style="background: linear-gradient(135deg, rgba(10, 102, 194, 0.15), rgba(10, 102, 194, 0.05)); 
+                <a href="https://www.linkedin.com/in/hafiz-muhammad-rizwan-862484335/" target="_blank"
+                    class="social-link" style="text-decoration: none;">
+                    <div class="social-card p-4 rounded-4 text-center" style="background: linear-gradient(135deg, rgba(10, 102, 194, 0.15), rgba(10, 102, 194, 0.05)); 
                                 backdrop-filter: blur(10px); 
                                 border: 2px solid rgba(10, 102, 194, 0.3); 
                                 width: 140px; 
                                 transition: all 0.3s ease;
                                 cursor: pointer;">
-                        <i class="bi bi-linkedin" style="font-size: 3rem; color: #0a66c2; display: block; margin-bottom: 10px;"></i>
+                        <i class="bi bi-linkedin"
+                            style="font-size: 3rem; color: #0a66c2; display: block; margin-bottom: 10px;"></i>
                         <span class="text-white fw-bold">LinkedIn</span>
                     </div>
                 </a>
-                <a href="https://wa.me/+923229603359" target="_blank" 
-                   class="social-link" style="text-decoration: none;">
-                    <div class="social-card p-4 rounded-4 text-center" 
-                         style="background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(37, 211, 102, 0.05)); 
+                <a href="https://wa.me/+923229603359" target="_blank" class="social-link"
+                    style="text-decoration: none;">
+                    <div class="social-card p-4 rounded-4 text-center" style="background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(37, 211, 102, 0.05)); 
                                 backdrop-filter: blur(10px); 
                                 border: 2px solid rgba(37, 211, 102, 0.3); 
                                 width: 140px; 
                                 transition: all 0.3s ease;
                                 cursor: pointer;">
-                        <i class="bi bi-whatsapp" style="font-size: 3rem; color: #25D366; display: block; margin-bottom: 10px;"></i>
+                        <i class="bi bi-whatsapp"
+                            style="font-size: 3rem; color: #25D366; display: block; margin-bottom: 10px;"></i>
                         <span class="text-white fw-bold">WhatsApp</span>
                     </div>
                 </a>
-                <a href="https://github.com/Hafiz-Muhammad-Rizwan" target="_blank" 
-                   class="social-link" style="text-decoration: none;">
-                    <div class="social-card p-4 rounded-4 text-center" 
-                         style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(102, 126, 234, 0.05)); 
+                <a href="https://github.com/Hafiz-Muhammad-Rizwan" target="_blank" class="social-link"
+                    style="text-decoration: none;">
+                    <div class="social-card p-4 rounded-4 text-center" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(102, 126, 234, 0.05)); 
                                 backdrop-filter: blur(10px); 
                                 border: 2px solid rgba(102, 126, 234, 0.3); 
                                 width: 140px; 
                                 transition: all 0.3s ease;
                                 cursor: pointer;">
-                        <i class="bi bi-github" style="font-size: 3rem; color: #667eea; display: block; margin-bottom: 10px;"></i>
+                        <i class="bi bi-github"
+                            style="font-size: 3rem; color: #667eea; display: block; margin-bottom: 10px;"></i>
                         <span class="text-white fw-bold">GitHub</span>
                     </div>
                 </a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hafizmuhammadrizwan359@gmail.com"
-                    target="_blank" 
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hafizmuhammadrizwan359@gmail.com" target="_blank"
                     class="social-link" style="text-decoration: none;">
-                    <div class="social-card p-4 rounded-4 text-center" 
-                         style="background: linear-gradient(135deg, rgba(234, 67, 53, 0.15), rgba(234, 67, 53, 0.05)); 
+                    <div class="social-card p-4 rounded-4 text-center" style="background: linear-gradient(135deg, rgba(234, 67, 53, 0.15), rgba(234, 67, 53, 0.05)); 
                                 backdrop-filter: blur(10px); 
                                 border: 2px solid rgba(234, 67, 53, 0.3); 
                                 width: 140px; 
                                 transition: all 0.3s ease;
                                 cursor: pointer;">
-                        <i class="bi bi-envelope" style="font-size: 3rem; color: #EA4335; display: block; margin-bottom: 10px;"></i>
+                        <i class="bi bi-envelope"
+                            style="font-size: 3rem; color: #EA4335; display: block; margin-bottom: 10px;"></i>
                         <span class="text-white fw-bold">Email</span>
                     </div>
                 </a>
             </div>
-            
+
             <div class="text-center mt-5">
                 <p class="text-white" style="opacity: 0.7; font-size: 0.95rem;">
                     © 2025 Hafiz Muhammad Rizwan. All rights reserved.
@@ -1271,31 +1470,31 @@
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
         }
-        
+
         .social-link:nth-child(1) .social-card:hover {
             border-color: #0a66c2 !important;
             box-shadow: 0 15px 35px rgba(10, 102, 194, 0.5) !important;
         }
-        
+
         .social-link:nth-child(2) .social-card:hover {
             border-color: #25D366 !important;
             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5) !important;
         }
-        
+
         .social-link:nth-child(3) .social-card:hover {
             border-color: #667eea !important;
             box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5) !important;
         }
-        
+
         .social-link:nth-child(4) .social-card:hover {
             border-color: #EA4335 !important;
             box-shadow: 0 15px 35px rgba(234, 67, 53, 0.5) !important;
         }
-        
+
         .social-card i {
             transition: transform 0.3s ease;
         }
-        
+
         .social-card:hover i {
             transform: scale(1.2) rotate(5deg);
         }
