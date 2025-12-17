@@ -83,6 +83,15 @@ const Portfolio = () => {
       image: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/RoomatchPk.png',
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Roommatch-Pk/tree/main/hostelmanagement',
       gradient: 'linear-gradient(135deg, rgba(127, 255, 212, 0.8), rgba(245, 245, 245, 0.8))'
+    },
+    {
+      title: 'Poetry Management System',
+      icon: '📝',
+      description: 'Migrated a legacy desktop NLP tool to a modern Spring Boot & React architecture, exposing linguistic analysis via REST APIs while maintaining strict logic decoupling.',
+      technologies: ['Spring Boot', 'Facade', 'Layered Architecture', 'React'],
+      image: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/poetry-management-react-12-16-2025_08_02_AM.png?raw=true',
+      link: 'https://github.com/Hafiz-Muhammad-Rizwan/Poetry_Management_Spring_Boot',
+      gradient: 'linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8))'
     }
   ];
 

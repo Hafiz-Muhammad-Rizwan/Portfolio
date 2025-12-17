@@ -5,6 +5,7 @@ const Skills = () => {
   const techStack = [
     { name: 'C++', category: 'Language' },
     { name: 'C#', category: 'Language' },
+    { name: 'Java', category: 'Language' },
     { name: 'Dart', category: 'Language' },
     { name: 'Flutter', category: 'Framework' },
     { name: 'React', category: 'Framework' },

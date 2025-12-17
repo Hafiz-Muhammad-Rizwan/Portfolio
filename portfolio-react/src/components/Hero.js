@@ -82,12 +82,12 @@ const Hero = () => {
         <div className="bento-card stats-card">
           <div className="stats-content">
             <div className="stat-item">
-              <div className="stat-number">4+</div>
+              <div className="stat-number">1+</div>
               <div className="stat-label">Years Experience</div>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <div className="stat-number">50+</div>
+              <div className="stat-number">15+</div>
               <div className="stat-label">Projects Built</div>
             </div>
           </div>
@@ -117,7 +117,7 @@ const Hero = () => {
         <div className="bento-card location-card">
           <div className="location-icon">📍</div>
           <div className="location-text">
-            <div className="location-city">Islamabad</div>
+            <div className="location-city">Faisalabad</div>
             <div className="location-country">Pakistan</div>
           </div>
           <div className="location-time">
