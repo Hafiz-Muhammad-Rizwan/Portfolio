@@ -7,41 +7,35 @@ const Contact = () => {
       name: 'LinkedIn',
       icon: '💼',
       url: 'https://www.linkedin.com/in/hafiz-muhammad-rizwan-862484335/',
-      color: '#0a66c2',
-      gradient: 'linear-gradient(135deg, rgba(10, 102, 194, 0.15), rgba(10, 102, 194, 0.05))'
+      label: 'Professional Network'
     },
     {
       name: 'WhatsApp',
       icon: '💬',
       url: 'https://wa.me/+923229603359',
-      color: '#25D366',
-      gradient: 'linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(37, 211, 102, 0.05))'
+      label: 'Quick Chat'
     },
     {
       name: 'GitHub',
       icon: '🐙',
       url: 'https://github.com/Hafiz-Muhammad-Rizwan',
-      color: '#667eea',
-      gradient: 'linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(102, 126, 234, 0.05))'
+      label: 'Code Repository'
     },
     {
       name: 'Email',
       icon: '📧',
       url: 'https://mail.google.com/mail/?view=cm&fs=1&to=hafizmuhammadrizwan359@gmail.com',
-      color: '#EA4335',
-      gradient: 'linear-gradient(135deg, rgba(234, 67, 53, 0.15), rgba(234, 67, 53, 0.05))'
+      label: 'Direct Message'
     }
   ];
 
   return (
     <section id="contact" className="contact-section">
-      <div className="contact-background"></div>
-      <div className="contact-glow"></div>
       <div className="contact-container">
         <div className="section-header">
-          <h2 className="section-title">Let's Connect! 🤝</h2>
+          <h2 className="section-title">Let's Connect</h2>
           <p className="section-subtitle">
-            Feel free to reach out for collaborations or just a friendly chat
+            Open for collaborations, opportunities, and conversations
           </p>
         </div>
 
@@ -52,26 +46,22 @@ const Contact = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="social-card"
-              style={{ 
-                background: social.gradient,
-                animationDelay: `${index * 0.1}s`
-              }}
+              className="bento-card social-card"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <span className="social-icon">{social.icon}</span>
-              <span className="social-name">{social.name}</span>
-              <div 
-                className="social-hover-effect"
-                style={{ 
-                  boxShadow: `0 15px 40px ${social.color}40`
-                }}
-              ></div>
+              <div className="social-info">
+                <span className="social-name">{social.name}</span>
+                <span className="social-label">{social.label}</span>
+              </div>
+              <span className="arrow-icon">→</span>
             </a>
           ))}
         </div>
 
         <div className="footer-text">
-          <p>© 2025 Hafiz Muhammad Rizwan. All rights reserved.</p>
+          <p>Built with React • Designed with attention to detail</p>
+          <p className="copyright">© 2025 Hafiz Muhammad Rizwan</p>
         </div>
       </div>
     </section>

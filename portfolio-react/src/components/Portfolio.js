@@ -88,57 +88,54 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="portfolio-section">
-      <div className="portfolio-background"></div>
       <div className="portfolio-container">
         <div className="section-header">
-          <h2 className="section-title">Projects & Achievements</h2>
+          <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
-            Showcasing My Projects, Skills, and Creativity
+            Building impactful solutions with modern technologies
           </p>
         </div>
 
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div 
+            <a 
               key={index} 
-              className="project-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              href={project.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bento-card project-card"
+              style={{ animationDelay: `${index * 0.05}s` }}
             >
-              <div className="project-content">
-                <div className="project-header">
-                  <span className="project-icon">{project.icon}</span>
-                  <h3 className="project-title">{project.title}</h3>
+              <div className="project-image-wrapper">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="project-image"
+                />
+                <div className="glass-overlay">
+                  <div className="overlay-content">
+                    <span className="project-icon-large">{project.icon}</span>
+                    <div className="view-project-badge">
+                      View Project →
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div className="project-content">
+                <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 <div className="project-technologies">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-badge">
+                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">
                       {tech}
                     </span>
                   ))}
+                  {project.technologies.length > 3 && (
+                    <span className="tech-tag">+{project.technologies.length - 3}</span>
+                  )}
                 </div>
               </div>
-              <a 
-                href={project.link} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="project-image-link"
-              >
-                <div className="project-image-wrapper">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="project-image"
-                  />
-                  <div 
-                    className="project-overlay"
-                    style={{ background: project.gradient }}
-                  >
-                    <span className="overlay-text">View Project →</span>
-                  </div>
-                </div>
-              </a>
-            </div>
+            </a>
           ))}
         </div>
       </div>
