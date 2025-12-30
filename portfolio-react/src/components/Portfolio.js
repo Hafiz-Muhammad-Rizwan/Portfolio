@@ -94,7 +94,7 @@ const Portfolio = () => {
       gradient: 'linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8))'
     },
     {
-      title: 'Financial Transaction System',
+      title: 'Banking App',
       icon: '💰',
       description: 'A full-stack financial solution featuring a reactive Flutter UI and a robust Spring Boot backend. Enforces data integrity during real-time transactions using strict row-level locking and transaction rollback mechanisms.',
       technologies: ['Spring Boot', 'Flutter', 'Java', 'Layered Architecture', 'Facade'],
