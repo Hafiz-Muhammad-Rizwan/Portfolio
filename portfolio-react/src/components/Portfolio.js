@@ -92,6 +92,15 @@ const Portfolio = () => {
       image: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/poetry-management-react-12-16-2025_08_02_AM.png?raw=true',
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Poetry_Management_Spring_Boot',
       gradient: 'linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8))'
+    },
+    {
+      title: 'Financial Transaction System',
+      icon: '💰',
+      description: 'A full-stack financial solution featuring a reactive Flutter UI and a robust Spring Boot backend. Enforces data integrity during real-time transactions using strict row-level locking and transaction rollback mechanisms.',
+      technologies: ['Spring Boot', 'Flutter', 'Java', 'Layered Architecture', 'Facade'],
+      image: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Banking%20App.jpg?raw=true',
+      link: 'https://github.com/Hafiz-Muhammad-Rizwan/Banking-App',
+      gradient: 'linear-gradient(135deg, rgba(240, 147, 251, 0.8), rgba(245, 87, 108, 0.8))'
     }
   ];
 
