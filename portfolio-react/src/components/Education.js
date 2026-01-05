@@ -2,14 +2,6 @@ import React from 'react';
 import './Education.css';
 
 const Education = () => {
-  const keyStrengths = [
-    { icon: '🎯', title: 'Object-Oriented Programming (OOP)' },
-    { icon: '📊', title: 'Data Structures & Algorithms' },
-    { icon: '🔀', title: 'Version Control (Git & GitHub)' },
-    { icon: '📋', title: 'Requirement Gathering & Analysis' },
-    { icon: '🎨', title: 'UML & Software Design Patterns' }
-  ];
-
   return (
     <section id="education" className="education-section">
       <div className="education-container">
@@ -32,19 +24,6 @@ const Education = () => {
                 <p className="degree-year">2023 - Present</p>
               </div>
             </div>
-          </div>
-
-          <div className="strengths-wrapper">
-            {keyStrengths.map((strength, index) => (
-              <div 
-                key={index} 
-                className="bento-card strength-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <span className="strength-icon">{strength.icon}</span>
-                <span className="strength-title">{strength.title}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>

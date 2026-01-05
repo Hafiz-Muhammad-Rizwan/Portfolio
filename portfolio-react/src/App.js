@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
 import Education from './components/Education';
+import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Skills />
       <Portfolio />
       <Education />
+      <Certifications />
       <Contact />
     </div>
   );

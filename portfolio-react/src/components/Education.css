@@ -30,13 +30,14 @@
 }
 
 .education-bento {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-education-card {
-  grid-column: span 2;
+  max-width: 900px;
+  width: 100%;
   padding: 3rem;
   animation: fadeInUp 0.6s ease-out;
 }
@@ -92,54 +93,9 @@
   margin: 0;
 }
 
-.strengths-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column: span 2;
-  gap: 2rem;
-}
-
-.strength-card {
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  animation: fadeInUp 0.6s ease-out;
-  opacity: 0;
-  animation-fill-mode: forwards;
-  transition: all 0.3s ease;
-}
-
-.strength-card:hover {
-  transform: translateY(-8px);
-}
-
-.strength-icon {
-  font-size: 2.5rem;
-  flex-shrink: 0;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-}
-
-.strength-title {
-  font-size: 1rem;
-  color: var(--color-text-secondary);
-  font-weight: 600;
-  line-height: 1.4;
-  margin: 0;
-}
-
 @media (max-width: 1024px) {
-  .education-bento {
-    grid-template-columns: 1fr;
-  }
-
   .main-education-card {
-    grid-column: span 1;
-  }
-
-  .strengths-wrapper {
-    grid-column: span 1;
-    grid-template-columns: 1fr;
+    max-width: 100%;
   }
 }
 
@@ -175,17 +131,5 @@
 
   .institution-name {
     font-size: 1rem;
-  }
-
-  .strength-card {
-    padding: 1.5rem;
-  }
-
-  .strength-icon {
-    font-size: 2rem;
-  }
-
-  .strength-title {
-    font-size: 0.9rem;
   }
 }

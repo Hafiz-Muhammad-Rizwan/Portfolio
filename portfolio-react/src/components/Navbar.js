@@ -35,6 +35,7 @@ const Navbar = () => {
           <a href="#home" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
           <a href="#skills" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Skills</a>
           <a href="#education" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Education</a>
+          <a href="#certifications" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Certifications</a>
           <a href="#portfolio" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</a>
           <a href="#contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
           <a 

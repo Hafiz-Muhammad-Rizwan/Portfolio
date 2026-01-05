@@ -5,25 +5,25 @@ const Contact = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      icon: '💼',
+      icon: 'LinkedinLogo.png',
       url: 'https://www.linkedin.com/in/hafiz-muhammad-rizwan-862484335/',
       label: 'Professional Network'
     },
     {
       name: 'WhatsApp',
-      icon: '💬',
+      icon: 'watsappLogo.png',
       url: 'https://wa.me/+923229603359',
       label: 'Quick Chat'
     },
     {
       name: 'GitHub',
-      icon: '🐙',
+      icon: 'GihubLogo.png',
       url: 'https://github.com/Hafiz-Muhammad-Rizwan',
       label: 'Code Repository'
     },
     {
       name: 'Email',
-      icon: '📧',
+      icon: 'GmailLogo.png',
       url: 'https://mail.google.com/mail/?view=cm&fs=1&to=hafizmuhammadrizwan359@gmail.com',
       label: 'Direct Message'
     }
@@ -49,7 +49,11 @@ const Contact = () => {
               className="bento-card social-card"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <span className="social-icon">{social.icon}</span>
+              <img 
+                src={`/Images/${social.icon}`} 
+                alt={social.name}
+                className="social-icon-img"
+              />
               <div className="social-info">
                 <span className="social-name">{social.name}</span>
                 <span className="social-label">{social.label}</span>

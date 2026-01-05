@@ -69,6 +69,20 @@
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
+.social-icon-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 12px rgba(212, 255, 0, 0.2));
+  transition: all 0.3s ease;
+}
+
+.social-card:hover .social-icon-img {
+  filter: drop-shadow(0 6px 16px rgba(212, 255, 0, 0.4));
+  transform: scale(1.1);
+}
+
 .social-info {
   flex: 1;
   display: flex;
@@ -144,6 +158,11 @@
 
   .social-icon {
     font-size: 2rem;
+  }
+
+  .social-icon-img {
+    width: 50px;
+    height: 50px;
   }
 
   .social-name {
