@@ -6,25 +6,25 @@ const Contact = () => {
     {
       name: 'LinkedIn',
       icon: 'LinkedinLogo.png',
-      url: 'https://www.linkedin.com/in/hafiz-muhammad-rizwan-862484335/',
+      url: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/LinkedinLogo.png',
       label: 'Professional Network'
     },
     {
       name: 'WhatsApp',
       icon: 'watsappLogo.png',
-      url: 'https://wa.me/+923229603359',
+      url: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/watsappLogo.png',
       label: 'Quick Chat'
     },
     {
       name: 'GitHub',
       icon: 'GihubLogo.png',
-      url: 'https://github.com/Hafiz-Muhammad-Rizwan',
+      url: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/GihubLogo.png',
       label: 'Code Repository'
     },
     {
       name: 'Email',
       icon: 'GmailLogo.png',
-      url: 'https://mail.google.com/mail/?view=cm&fs=1&to=hafizmuhammadrizwan359@gmail.com',
+      url: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/GmailLogo.png',
       label: 'Direct Message'
     }
   ];
