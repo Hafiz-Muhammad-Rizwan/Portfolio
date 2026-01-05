@@ -28,26 +28,29 @@
 
 /* Light Mode Theme */
 [data-theme="light"] {
-  --color-bg: #FAFAFA;
+  --color-bg: #F3F4F6;
   --color-card: #FFFFFF;
-  --color-accent: #6B4CE6;
-  --color-accent-alt: #FF6B9D;
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #666666;
-  --color-border: rgba(0, 0, 0, 0.08);
+  --color-accent: #059669;
+  --color-accent-alt: #CCFF00;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4B5563;
+  --color-border: #E5E7EB;
   
   --shadow-card: 
-    0px 0px 0px 1px rgba(0,0,0,0.04),
-    0px 2px 4px -1px rgba(0,0,0,0.06),
-    0px 8px 16px -4px rgba(0,0,0,0.08),
-    0px 16px 32px -8px rgba(0,0,0,0.1);
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
   
   --shadow-card-hover:
-    0px 0px 0px 1px var(--color-accent),
-    0px 4px 8px -2px rgba(107, 76, 230, 0.15),
-    0px 12px 24px -6px rgba(107, 76, 230, 0.2),
-    0px 24px 48px -12px rgba(107, 76, 230, 0.25),
-    0px 0px 32px 0px rgba(107, 76, 230, 0.15);
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0 0 0 1px var(--color-accent);
+}
+
+/* Light mode card styling */
+[data-theme="light"] .bento-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -132,7 +135,7 @@ code, pre {
 }
 
 [data-theme="light"] .bento-card::before {
-  background: radial-gradient(circle at 50% 0%, rgba(107, 76, 230, 0.04), transparent 50%);
+  background: radial-gradient(circle at 50% 0%, rgba(5, 150, 105, 0.04), transparent 50%);
 }
 
 .bento-card:hover {

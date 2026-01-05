@@ -59,7 +59,9 @@ const Certifications = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="cert-header">
-                <span className="cert-icon">{cert.icon}</span>
+                <div className="cert-icon">
+                  <img src={cert.icon} alt={cert.title} className="cert-icon-img" />
+                </div>
                 <div className="cert-badge">
                   <img 
                     src="https://www.coursera.org/favicon.ico" 
