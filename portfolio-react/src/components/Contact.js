@@ -5,26 +5,26 @@ const Contact = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      icon: 'LinkedinLogo.png',
-      url: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/LinkedinLogo.png',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/LinkedinLogo.png',
+      url: 'https://www.linkedin.com/in/hafiz-muhammad-rizwan',
       label: 'Professional Network'
     },
     {
       name: 'WhatsApp',
-      icon: 'watsappLogo.png',
-      url: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/watsappLogo.png',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/watsappLogo.png',
+      url: 'https://wa.me/your-phone-number',
       label: 'Quick Chat'
     },
     {
       name: 'GitHub',
-      icon: 'GihubLogo.png',
-      url: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/GihubLogo.png',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/GihubLogo.png',
+      url: 'https://github.com/Hafiz-Muhammad-Rizwan',
       label: 'Code Repository'
     },
     {
       name: 'Email',
-      icon: 'GmailLogo.png',
-      url: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/GmailLogo.png',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/GmailLogo.png',
+      url: 'mailto:your-email@gmail.com',
       label: 'Direct Message'
     }
   ];
@@ -50,7 +50,7 @@ const Contact = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <img 
-                src={`/Images/${social.icon}`} 
+                src={social.icon} 
                 alt={social.name}
                 className="social-icon-img"
               />
