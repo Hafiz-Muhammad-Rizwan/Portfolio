@@ -12,7 +12,7 @@ const Contact = () => {
     {
       name: 'WhatsApp',
       icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/watsappLogo.png',
-      url: 'https://wa.me/your-phone-number',
+      url: 'https://wa.me/923229603359',
       label: 'Quick Chat'
     },
     {
