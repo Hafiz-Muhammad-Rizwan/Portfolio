@@ -10,7 +10,7 @@ const Certifications = () => {
       date: 'Issued Dec 2025',
       skills: ['Java', 'Spring Boot', 'Backend'],
       link: 'https://coursera.org/verify/NS3IOWV0QZIB',
-      icon: '☕'
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Spring%20Boot.png'
     },
     {
       title: 'Python for Data Science, AI & Development',
@@ -19,7 +19,7 @@ const Certifications = () => {
       date: 'Issued Oct 2025',
       skills: ['Python', 'Data Science', 'AI'],
       link: 'https://coursera.org/verify/L920C94VN3ZV',
-      icon: '🐍'
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Python.png'
     },
     {
       title: 'AI For Everyone',
@@ -28,7 +28,7 @@ const Certifications = () => {
       date: 'Issued Aug 2025',
       skills: ['AI Strategy', 'Machine Learning'],
       link: 'https://coursera.org/verify/CTIOH9F2A7D5',
-      icon: '🤖'
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/AI%20Logo.png'
     },
     {
       title: 'Advanced JavaScript Concepts',
@@ -37,7 +37,7 @@ const Certifications = () => {
       date: 'Issued Jul 2025',
       skills: ['JavaScript', 'ES6+', 'Async/Await'],
       link: 'https://coursera.org/verify/O6ADC3W0RHEF',
-      icon: '⚡'
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Java%20Script.png'
     }
   ];
 

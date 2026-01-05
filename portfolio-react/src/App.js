@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -9,6 +9,17 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme === 'dark' : true;
+  });
+
+  useEffect(() => {
+    // Apply theme to document
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
   useEffect(() => {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -26,9 +37,13 @@ function App() {
     });
   }, []);
 
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
       <Hero />
       <Skills />
       <Portfolio />
