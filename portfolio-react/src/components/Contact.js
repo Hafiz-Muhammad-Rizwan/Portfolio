@@ -5,25 +5,25 @@ const Contact = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/LinkedinLogo.png',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Linked%20In%20Icon.png',
       url: 'https://www.linkedin.com/in/hafiz-muhammad-rizwan',
       label: 'Professional Network'
     },
     {
       name: 'WhatsApp',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/watsappLogo.png',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/WatsApp%20Icon.png',
       url: 'https://wa.me/923229603359',
       label: 'Quick Chat'
     },
     {
       name: 'GitHub',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/GihubLogo.png',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Github%20Icon.png',
       url: 'https://github.com/Hafiz-Muhammad-Rizwan',
       label: 'Code Repository'
     },
     {
       name: 'Email',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/GmailLogo.png',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Gmail%20Logo%20Icon.png',
       url: 'mailto:your-email@gmail.com',
       label: 'Direct Message'
     }
