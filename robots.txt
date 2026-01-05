@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hafiz-muhammad-rizwan.github.io/Portfolio/sitemap.xml
