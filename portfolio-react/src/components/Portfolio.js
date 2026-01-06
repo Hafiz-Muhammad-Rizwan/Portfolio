@@ -101,7 +101,16 @@ const Portfolio = () => {
       image: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Banking%20App.jpg?raw=true',
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Banking-App',
       gradient: 'linear-gradient(135deg, rgba(240, 147, 251, 0.8), rgba(245, 87, 108, 0.8))'
-    }
+    },
+    {
+    title: 'Sentimental Analysis',
+    icon: '🧠',
+    description: 'An advanced Natural Language Processing (NLP) model that accurately classifies textual data into positive, negative, or neutral sentiments. Features data visualization dashboards to interpret customer feedback trends and social media patterns in real-time.',
+    technologies: ['Python', 'NLTK', 'Scikit-learn', 'Pandas', 'Data Visualization'],
+    image: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Sentimental%20Analysis.png?raw=true',
+    link: 'https://github.com/Hafiz-Muhammad-Rizwan/Sentimental-Analysis',
+    gradient: 'linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8))'
+   }
   ];
 
   return (
