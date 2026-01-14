@@ -116,14 +116,14 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="portfolio-section">
       <div className="portfolio-container">
-        <div className="section-header">
+        <div className="section-header fade-in">
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
             Building impactful solutions with modern technologies
           </p>
         </div>
 
-        <div className="projects-grid">
+        <div className="projects-grid fade-in" style={{ animationDelay: '0.2s' }}>
           {projects.map((project, index) => (
             <a 
               key={index} 

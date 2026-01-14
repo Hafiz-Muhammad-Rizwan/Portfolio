@@ -47,7 +47,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero-section">
-      <div className="bento-grid">
+      <div className="bento-grid fade-in">
         {/* Hero Card - Large 2x2 */}
         <div className="bento-card hero-card">
           <div className="hero-content-wrapper">

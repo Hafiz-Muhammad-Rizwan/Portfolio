@@ -44,14 +44,14 @@ const Certifications = () => {
   return (
     <section id="certifications" className="certifications-section">
       <div className="certifications-container">
-        <div className="section-header">
+        <div className="section-header fade-in">
           <h2 className="section-title">Certifications</h2>
           <p className="section-subtitle">
             Professional certifications and continuous learning achievements
           </p>
         </div>
 
-        <div className="certifications-grid">
+        <div className="certifications-grid fade-in" style={{ animationDelay: '0.2s' }}>
           {certifications.map((cert, index) => (
             <div
               key={index}

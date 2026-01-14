@@ -32,14 +32,14 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-container">
-        <div className="section-header">
+        <div className="section-header fade-in">
           <h2 className="section-title">Let's Connect</h2>
           <p className="section-subtitle">
             Open for collaborations, opportunities, and conversations
           </p>
         </div>
 
-        <div className="social-links-grid">
+        <div className="social-links-grid fade-in" style={{ animationDelay: '0.2s' }}>
           {socialLinks.map((social, index) => (
             <a
               key={index}
