@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
+import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
@@ -46,6 +47,7 @@ function App() {
       <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
       <Hero />
       <Skills />
+      <Experience />
       <Portfolio />
       <Education />
       <Certifications />
