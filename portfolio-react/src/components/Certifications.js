@@ -9,7 +9,7 @@ const Certifications = () => {
       platform: 'via Coursera',
       date: 'Issued Dec 2025',
       skills: ['Java', 'Spring Boot', 'Backend'],
-      link: 'https://coursera.org/verify/NS3IOWV0QZIB',
+      link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Java.pdf',
       icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Spring%20Boot.png'
     },
     {
@@ -18,7 +18,7 @@ const Certifications = () => {
       platform: 'via Coursera',
       date: 'Issued Oct 2025',
       skills: ['Python', 'Data Science', 'AI'],
-      link: 'https://coursera.org/verify/L920C94VN3ZV',
+      link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/IBM%20Data%20Science.pdf',
       icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Python.png'
     },
     {
@@ -27,7 +27,7 @@ const Certifications = () => {
       platform: 'via Coursera',
       date: 'Issued Aug 2025',
       skills: ['AI Strategy', 'Machine Learning'],
-      link: 'https://coursera.org/verify/CTIOH9F2A7D5',
+      link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/AI%20For%20Every%20One.pdf',
       icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/AI%20Logo.png'
     },
     {
@@ -36,7 +36,7 @@ const Certifications = () => {
       platform: 'via Coursera',
       date: 'Issued Jul 2025',
       skills: ['JavaScript', 'ES6+', 'Async/Await'],
-      link: 'https://coursera.org/verify/O6ADC3W0RHEF',
+      link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Java%20Script%20Certificate%20Courseera.pdf',
       icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Java%20Script.png'
     },
     {
@@ -45,11 +45,11 @@ const Certifications = () => {
       platform: 'via Coursera',
       date: 'Issued Jun 2025',
       skills: ['Flutter', 'Dart', 'State Management', 'Android', 'iOS'],
-      link: 'https://coursera.org/verify/G335TBGX2GKW',
+      link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Flutter%20IBM.pdf',
       icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Flutter%20Logo.png'
     }
   ];
-
+ 
   return (
     <section id="certifications" className="certifications-section">
       <div className="certifications-container">
