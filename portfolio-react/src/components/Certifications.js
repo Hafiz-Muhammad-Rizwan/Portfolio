@@ -38,6 +38,15 @@ const Certifications = () => {
       skills: ['JavaScript', 'ES6+', 'Async/Await'],
       link: 'https://coursera.org/verify/O6ADC3W0RHEF',
       icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Java%20Script.png'
+    },
+    {
+      title: 'Flutter and Dart: Developing iOS, Android, and Mobile Apps',
+      issuer: 'IBM',
+      platform: 'via Coursera',
+      date: 'Issued Jun 2025',
+      skills: ['Flutter', 'Dart', 'State Management', 'Android', 'iOS'],
+      link: 'https://coursera.org/verify/G335TBGX2GKW',
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Flutter.png'
     }
   ];
 
