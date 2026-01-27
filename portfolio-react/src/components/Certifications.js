@@ -46,7 +46,7 @@ const Certifications = () => {
       date: 'Issued Jun 2025',
       skills: ['Flutter', 'Dart', 'State Management', 'Android', 'iOS'],
       link: 'https://coursera.org/verify/G335TBGX2GKW',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Flutter.png'
+      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Flutter%20Logo.png'
     }
   ];
 
