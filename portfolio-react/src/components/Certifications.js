@@ -11,7 +11,7 @@ const Certifications = () => {
       skills: ['Java', 'Spring Boot', 'Backend'],
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Java.pdf',
       icon: '/Images/Spring Boot.png'
-    },
+    }, 
     {
       title: 'Python for Data Science, AI & Development',
       issuer: 'IBM',
