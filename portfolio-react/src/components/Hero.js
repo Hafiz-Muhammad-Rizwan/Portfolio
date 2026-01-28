@@ -53,7 +53,7 @@ const Hero = () => {
           <div className="hero-content-wrapper">
             <div className="hero-image-container">
               <img 
-                src="https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/cropped_image.png" 
+                src="/Images/cropped_image.png" 
                 alt="Hafiz Muhammad Rizwan"
                 className="hero-profile-image"
               />

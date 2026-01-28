@@ -10,7 +10,7 @@ const Certifications = () => {
       date: 'Issued Dec 2025',
       skills: ['Java', 'Spring Boot', 'Backend'],
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Java.pdf',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Spring%20Boot.png'
+      icon: '/Images/Spring Boot.png'
     },
     {
       title: 'Python for Data Science, AI & Development',
@@ -19,7 +19,7 @@ const Certifications = () => {
       date: 'Issued Oct 2025',
       skills: ['Python', 'Data Science', 'AI'],
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/IBM%20Data%20Science.pdf',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Python.png'
+      icon: '/Images/Python.png'
     },
     {
       title: 'AI For Everyone',
@@ -28,7 +28,7 @@ const Certifications = () => {
       date: 'Issued Aug 2025',
       skills: ['AI Strategy', 'Machine Learning'],
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/AI%20For%20Every%20One.pdf',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/AI%20Logo.png'
+      icon: '/Images/AI Logo.png'
     },
     {
       title: 'Advanced JavaScript Concepts',
@@ -37,7 +37,7 @@ const Certifications = () => {
       date: 'Issued Jul 2025',
       skills: ['JavaScript', 'ES6+', 'Async/Await'],
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Java%20Script%20Certificate%20Courseera.pdf',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Java%20Script.png'
+      icon: '/Images/Java Script.png'
     },
     {
       title: 'Flutter and Dart: Developing iOS, Android, and Mobile Apps',
@@ -46,7 +46,7 @@ const Certifications = () => {
       date: 'Issued Jun 2025',
       skills: ['Flutter', 'Dart', 'State Management', 'Android', 'iOS'],
       link: 'https://github.com/Hafiz-Muhammad-Rizwan/Portfolio/blob/main/Images/Flutter%20IBM.pdf',
-      icon: 'https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Portfolio/main/Images/Flutter%20Logo.png'
+      icon: '/Images/Flutter Logo.png'
     }
   ];
  
