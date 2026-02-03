@@ -5,9 +5,10 @@
     <title>Redirecting...</title>
     <script>
       var pathname = window.location.pathname;
+      
       window.location.replace(
-        "https://hafiz-muhammad-rizwan.github.io/Portfolio/" +
-        (pathname.replace("/Portfolio/", ""))
+        "https://hafizmuhammadrizwan.me/" + 
+        (pathname.replace("/Portfolio/", "").replace(/^\//, ""))
       );
     </script>
   </head>
