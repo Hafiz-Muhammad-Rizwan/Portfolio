@@ -1,9 +1,35 @@
 import React from 'react';
 import { FaReact, FaJava, FaGitAlt, FaNodeJs, FaMobileAlt } from 'react-icons/fa';
 import { SiFlutter, SiDart, SiNextdotjs, SiSpringboot, SiMongodb, SiFirebase } from 'react-icons/si';
+import { useScrollAnimation } from './useScrollAnimation';
 import './Skills.css';
 
+const SkillCard = ({ category, index }) => {
+  const [cardRef, cardVisible] = useScrollAnimation();
+  
+  return (
+    <div 
+      ref={cardRef}
+      className={`skill-category-card scroll-fade-in ${cardVisible ? 'visible' : ''}`}
+    >
+      <div className="category-header">
+        {category.icon}
+        <h3 className="category-title">{category.title}</h3>
+      </div>
+      <div className="skills-list">
+        {category.skills.map((skill, listIndex) => (
+          <div key={listIndex} className="skill-chip">
+            <span className="skill-icon">{skill.icon}</span>
+            <span className="skill-name">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Skills = () => {
+  const [headerRef, headerVisible] = useScrollAnimation();
   const categories = [
     {
       title: 'Mobile App Dev',
@@ -44,7 +70,10 @@ const Skills = () => {
   return (
     <section id="skills" className="skills-section">
       <div className="skills-container">
-        <div className="section-header fade-in">
+        <div 
+          ref={headerRef}
+          className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}
+        >
           <h2 className="section-title">Tech Stack</h2>
           <p className="section-subtitle">
             Technologies and tools I work with daily
@@ -53,20 +82,7 @@ const Skills = () => {
 
         <div className="skills-grid">
           {categories.map((category, index) => (
-            <div key={index} className="skill-category-card fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="category-header">
-                {category.icon}
-                <h3 className="category-title">{category.title}</h3>
-              </div>
-              <div className="skills-list">
-                {category.skills.map((skill, listIndex) => (
-                  <div key={listIndex} className="skill-chip">
-                    <span className="skill-icon">{skill.icon}</span>
-                    <span className="skill-name">{skill.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <SkillCard key={index} category={category} index={index} />
           ))}
         </div>
       </div>

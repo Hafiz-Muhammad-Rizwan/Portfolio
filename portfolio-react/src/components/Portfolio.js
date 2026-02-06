@@ -1,7 +1,54 @@
 import React from 'react';
+import { useScrollAnimation } from './useScrollAnimation';
 import './Portfolio.css';
 
+const ProjectCard = ({ project, index }) => {
+  const [cardRef, cardVisible] = useScrollAnimation();
+  
+  return (
+    <a 
+      ref={cardRef}
+      href={project.link} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className={`bento-card project-card scroll-fade-in ${cardVisible ? 'visible' : ''}`}
+    >
+      <div className="project-image-wrapper">
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="project-image"
+        />
+        <div className="glass-overlay">
+          <div className="overlay-content">
+            <span className="project-icon-large">{project.icon}</span>
+            <div className="view-project-badge">
+              View Project →
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="project-content">
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-description">{project.description}</p>
+        <div className="project-technologies">
+          {project.technologies.slice(0, 3).map((tech, techIndex) => (
+            <span key={techIndex} className="tech-tag">
+              {tech}
+            </span>
+          ))}
+          {project.technologies.length > 3 && (
+            <span className="tech-tag">+{project.technologies.length - 3}</span>
+          )}
+        </div>
+      </div>
+    </a>
+  );
+};
+
 const Portfolio = () => {
+  const [header1Ref, header1Visible] = useScrollAnimation();
+  const [header2Ref, header2Visible] = useScrollAnimation();
   const featuredProjects = [
     {
       title: '🇵🇰 Roomatch Pk (Airbnb for Pakistan)',
@@ -121,53 +168,19 @@ const Portfolio = () => {
       <div className="portfolio-container">
         
         {/* Featured Projects Section */}
-        <div className="section-header fade-in">
+        <div 
+          ref={header1Ref}
+          className={`section-header fade-in ${header1Visible ? 'visible' : ''}`}
+        >
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
             Building impactful solutions with modern technologies
           </p>
         </div>
 
-        <div className="projects-grid fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="projects-grid">
           {featuredProjects.map((project, index) => (
-            <a 
-              key={index} 
-              href={project.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bento-card project-card"
-              style={{ animationDelay: `${index * 0.05}s` }}
-            >
-              <div className="project-image-wrapper">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="project-image"
-                />
-                <div className="glass-overlay">
-                  <div className="overlay-content">
-                    <span className="project-icon-large">{project.icon}</span>
-                    <div className="view-project-badge">
-                      View Project →
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-technologies">
-                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="tech-tag">+{project.technologies.length - 3}</span>
-                  )}
-                </div>
-              </div>
-            </a>
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
 
@@ -175,53 +188,19 @@ const Portfolio = () => {
         <div style={{ height: '80px' }}></div>
 
         {/* Mini Projects Section */}
-        <div className="section-header fade-in">
+        <div 
+          ref={header2Ref}
+          className={`section-header fade-in ${header2Visible ? 'visible' : ''}`}
+        >
           <h2 className="section-title">Mini Projects</h2>
           <p className="section-subtitle">
             Experimental apps and learning milestones
           </p>
         </div>
 
-        <div className="projects-grid fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="projects-grid">
           {miniProjects.map((project, index) => (
-            <a 
-              key={index} 
-              href={project.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bento-card project-card"
-              style={{ animationDelay: `${index * 0.05}s` }}
-            >
-              <div className="project-image-wrapper">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="project-image"
-                />
-                <div className="glass-overlay">
-                  <div className="overlay-content">
-                    <span className="project-icon-large">{project.icon}</span>
-                    <div className="view-project-badge">
-                      View Project →
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-technologies">
-                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="tech-tag">+{project.technologies.length - 3}</span>
-                  )}
-                </div>
-              </div>
-            </a>
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
 

@@ -1,7 +1,34 @@
 import React from 'react';
+import { useScrollAnimation } from './useScrollAnimation';
 import './Contact.css';
 
+const SocialCard = ({ social, index }) => {
+  const [cardRef, cardVisible] = useScrollAnimation();
+  
+  return (
+    <a
+      ref={cardRef}
+      href={social.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`bento-card social-card scroll-fade-in ${cardVisible ? 'visible' : ''}`}
+    >
+      <img 
+        src={social.icon} 
+        alt={social.name}
+        className="social-icon-img"
+      />
+      <div className="social-info">
+        <span className="social-name">{social.name}</span>
+        <span className="social-label">{social.label}</span>
+      </div>
+      <span className="arrow-icon">→</span>
+    </a>
+  );
+};
+
 const Contact = () => {
+  const [headerRef, headerVisible] = useScrollAnimation();
   const socialLinks = [
     {
       name: 'LinkedIn',
@@ -32,34 +59,19 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-container">
-        <div className="section-header fade-in">
+        <div 
+          ref={headerRef}
+          className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}
+        >
           <h2 className="section-title">Let's Connect</h2>
           <p className="section-subtitle">
             Open for collaborations, opportunities, and conversations
           </p>
         </div>
 
-        <div className="social-links-grid fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="social-links-grid">
           {socialLinks.map((social, index) => (
-            <a
-              key={index}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bento-card social-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <img 
-                src={social.icon} 
-                alt={social.name}
-                className="social-icon-img"
-              />
-              <div className="social-info">
-                <span className="social-name">{social.name}</span>
-                <span className="social-label">{social.label}</span>
-              </div>
-              <span className="arrow-icon">→</span>
-            </a>
+            <SocialCard key={index} social={social} index={index} />
           ))}
         </div>
 

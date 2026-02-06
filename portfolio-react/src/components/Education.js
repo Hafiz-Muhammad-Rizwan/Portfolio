@@ -1,19 +1,29 @@
 import React from 'react';
+import { useScrollAnimation } from './useScrollAnimation';
 import './Education.css';
 
 const Education = () => {
+  const [headerRef, headerVisible] = useScrollAnimation();
+  const [cardRef, cardVisible] = useScrollAnimation();
+
   return (
     <section id="education" className="education-section">
       <div className="education-container">
-        <div className="section-header fade-in">
+        <div 
+          ref={headerRef}
+          className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}
+        >
           <h2 className="section-title">Education</h2>
           <p className="section-subtitle">
             Building expertise through structured academic learning and hands-on experience
           </p>
         </div>
 
-        <div className="education-bento fade-in" style={{ animationDelay: '0.2s' }}>
-          <div className="bento-card main-education-card">
+        <div className="education-bento">
+          <div 
+            ref={cardRef}
+            className={`bento-card main-education-card scroll-fade-in ${cardVisible ? 'visible' : ''}`}
+          >
             <div className="education-header">
               <span className="education-icon">🎓</span>
               <div className="education-info">

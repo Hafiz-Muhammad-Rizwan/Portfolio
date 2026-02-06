@@ -1,7 +1,58 @@
 import React from 'react';
+import { useScrollAnimation } from './useScrollAnimation';
 import './Certifications.css';
 
+const CertificationCard = ({ cert, index }) => {
+  const [cardRef, cardVisible] = useScrollAnimation();
+  
+  return (
+    <div
+      ref={cardRef}
+      className={`bento-card certification-card scroll-fade-in ${cardVisible ? 'visible' : ''}`}
+    >
+      <div className="cert-header">
+        <div className="cert-icon">
+          <img src={cert.icon} alt={cert.title} className="cert-icon-img" />
+        </div>
+        <div className="cert-badge">
+          <img 
+            src="https://www.coursera.org/favicon.ico" 
+            alt="Coursera" 
+            className="coursera-badge"
+          />
+        </div>
+      </div>
+
+      <div className="cert-content">
+        <h3 className="cert-title">{cert.title}</h3>
+        <p className="cert-issuer">
+          {cert.issuer} <span className="cert-platform">{cert.platform}</span>
+        </p>
+        <p className="cert-date">{cert.date}</p>
+
+        <div className="cert-skills">
+          {cert.skills.map((skill, idx) => (
+            <span key={idx} className="skill-tag">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <a
+        href={cert.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cert-verify-link"
+      >
+        Verify Certificate →
+      </a>
+    </div>
+  );
+};
+
 const Certifications = () => {
+  const [headerRef, headerVisible] = useScrollAnimation();
   const certifications = [
     {
       title: 'Java Spring Boot',
@@ -53,58 +104,19 @@ const Certifications = () => {
   return (
     <section id="certifications" className="certifications-section">
       <div className="certifications-container">
-        <div className="section-header fade-in">
+        <div 
+          ref={headerRef}
+          className={`section-header fade-in ${headerVisible ? 'visible' : ''}`}
+        >
           <h2 className="section-title">Certifications</h2>
           <p className="section-subtitle">
             Professional certifications and continuous learning achievements
           </p>
         </div>
 
-        <div className="certifications-grid fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="certifications-grid">
           {certifications.map((cert, index) => (
-            <div
-              key={index}
-              className="bento-card certification-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="cert-header">
-                <div className="cert-icon">
-                  <img src={cert.icon} alt={cert.title} className="cert-icon-img" />
-                </div>
-                <div className="cert-badge">
-                  <img 
-                    src="https://www.coursera.org/favicon.ico" 
-                    alt="Coursera" 
-                    className="coursera-badge"
-                  />
-                </div>
-              </div>
-
-              <div className="cert-content">
-                <h3 className="cert-title">{cert.title}</h3>
-                <p className="cert-issuer">
-                  {cert.issuer} <span className="cert-platform">{cert.platform}</span>
-                </p>
-                <p className="cert-date">{cert.date}</p>
-
-                <div className="cert-skills">
-                  {cert.skills.map((skill, idx) => (
-                    <span key={idx} className="skill-tag">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <a
-                href={cert.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cert-verify-link"
-              >
-                Verify Certificate →
-              </a>
-            </div>
+            <CertificationCard key={index} cert={cert} index={index} />
           ))}
         </div>
       </div>
