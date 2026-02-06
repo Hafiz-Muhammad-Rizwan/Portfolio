@@ -27,33 +27,7 @@
     0px 0px 32px 0px rgba(59, 130, 246, 0.2);
 }
 
-/* Light Mode Theme - Professional Blue */
-[data-theme="light"] {
-  --color-bg: #F8FAFC;
-  --color-card: #FFFFFF;
-  --color-accent: #2563EB;
-  --color-accent-alt: #3B82F6;
-  --color-accent-dark: #1E40AF;
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #475569;
-  --color-border: #E2E8F0;
-  
-  --shadow-card: 
-    0 1px 3px 0 rgba(30, 64, 175, 0.1),
-    0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  
-  --shadow-card-hover:
-    0 4px 6px -1px rgba(30, 64, 175, 0.15),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1),
-    0 0 0 2px var(--color-accent);
-}
 
-/* Light mode card styling */
-[data-theme="light"] .bento-card {
-  background: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-}
 
 * {
   margin: 0;
