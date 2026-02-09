@@ -83,12 +83,12 @@
 .social-icon {
   font-size: 2.5rem;
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.3));
+  filter: drop-shadow(0 2px 8px rgba(0, 212, 255, 0.3));
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-card:hover .social-icon {
-  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.5));
+  filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.5));
   transform: scale(1.1);
 }
 
@@ -97,12 +97,12 @@
   height: 60px;
   object-fit: contain;
   flex-shrink: 0;
-  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3));
+  filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.3));
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-card:hover .social-icon-img {
-  filter: drop-shadow(0 6px 16px rgba(59, 130, 246, 0.5));
+  filter: drop-shadow(0 6px 16px rgba(0, 212, 255, 0.5));
   transform: scale(1.15) rotate(5deg);
 }
 
@@ -135,7 +135,7 @@
 .social-card:hover .arrow-icon {
   color: var(--color-accent);
   transform: translateX(8px) scale(1.2);
-  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
 }
 
 .footer-text {

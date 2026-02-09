@@ -1,17 +1,13 @@
 import React from 'react';
-import { useScrollAnimation } from './useScrollAnimation';
 import './Portfolio.css';
 
 const ProjectCard = ({ project, index }) => {
-  const [cardRef, cardVisible] = useScrollAnimation();
-  
   return (
     <a 
-      ref={cardRef}
       href={project.link} 
       target="_blank" 
       rel="noopener noreferrer"
-      className={`bento-card project-card scroll-fade-in ${cardVisible ? 'visible' : ''}`}
+      className="bento-card project-card"
     >
       <div className="project-image-wrapper">
         <img 
@@ -47,9 +43,16 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const Portfolio = () => {
-  const [header1Ref, header1Visible] = useScrollAnimation();
-  const [header2Ref, header2Visible] = useScrollAnimation();
   const featuredProjects = [
+    {
+      title: 'Mini Operating System Simulation',
+      icon: '🖥️',
+      description: 'Designed a fully functional desktop simulation to visualize Operating System concepts using C++ and Qt Framework. Features a responsive GUI with Taskbar, Start Menu, Windowing system, Process Control Block (PCB) viewer, Shared Memory (System V IPC) for RAM/CPU tracking, and integrated File Explorer with utility apps.',
+      technologies: ['C++', 'Qt Framework', 'System V IPC', 'OOP', 'GUI'],
+      image: '/Images/Mini Os.jpg',
+      link: 'https://github.com/Hafiz-Muhammad-Rizwan/Mini-Operating-System',
+      gradient: 'linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(96, 165, 250, 0.8))'
+    },
     {
       title: '🇵🇰 Roomatch Pk (Airbnb for Pakistan)',
       icon: '🏠',
@@ -168,10 +171,7 @@ const Portfolio = () => {
       <div className="portfolio-container">
         
         {/* Featured Projects Section */}
-        <div 
-          ref={header1Ref}
-          className={`section-header fade-in ${header1Visible ? 'visible' : ''}`}
-        >
+        <div className="section-header">
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
             Building impactful solutions with modern technologies
@@ -188,10 +188,7 @@ const Portfolio = () => {
         <div style={{ height: '80px' }}></div>
 
         {/* Mini Projects Section */}
-        <div 
-          ref={header2Ref}
-          className={`section-header fade-in ${header2Visible ? 'visible' : ''}`}
-        >
+        <div className="section-header">
           <h2 className="section-title">Mini Projects</h2>
           <p className="section-subtitle">
             Experimental apps and learning milestones

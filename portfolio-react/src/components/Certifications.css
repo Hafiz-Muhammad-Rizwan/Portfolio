@@ -65,9 +65,9 @@
   border-radius: inherit;
   padding: 2px;
   background: linear-gradient(135deg, 
-    rgba(59, 130, 246, 0.4), 
-    rgba(96, 165, 250, 0.2),
-    rgba(59, 130, 246, 0.1)
+    rgba(0, 212, 255, 0.4), 
+    rgba(56, 189, 248, 0.2),
+    rgba(0, 212, 255, 0.1)
   );
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box, 
@@ -85,9 +85,9 @@
 
 [data-theme="light"] .certification-card::before {
   background: linear-gradient(135deg, 
-    rgba(59, 130, 246, 0.4), 
-    rgba(37, 99, 235, 0.2),
-    rgba(59, 130, 246, 0.1)
+    rgba(0, 212, 255, 0.4), 
+    rgba(0, 180, 220, 0.2),
+    rgba(0, 212, 255, 0.1)
   );
   transition: opacity 0.4s ease;
 }
@@ -100,7 +100,7 @@
 
 [data-theme="light"] .certification-card:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 10px 20px -5px rgba(30, 64, 175, 0.2),
+  box-shadow: 0 10px 20px -5px rgba(0, 180, 220, 0.2),
               0 0 0 2px var(--color-accent);
 }
 
@@ -120,7 +120,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4));
+  filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.4));
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -135,7 +135,7 @@
 }
 
 [data-theme="light"] .cert-icon {
-  filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3));
+  filter: drop-shadow(0 2px 8px rgba(0, 180, 220, 0.3));
 }
 
 .cert-badge {
@@ -221,9 +221,9 @@
 }
 
 .certification-card:hover .skill-tag {
-  background: rgba(59, 130, 246, 0.2);
+  background: rgba(0, 212, 255, 0.2);
   border-color: var(--color-accent);
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -242,14 +242,14 @@
   position: relative;
   align-self: flex-start;
   padding: 8px 16px;
-  border: 2px solid rgba(59, 130, 246, 0.2);
+  border: 2px solid rgba(0, 212, 255, 0.2);
   border-radius: 8px;
 }
 
 .cert-verify-link:hover {
   transform: translateX(4px) scale(1.05);
   border-color: var(--color-accent);
-  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6));
 }
 
 @keyframes fadeInUp {

@@ -53,9 +53,9 @@
   object-fit: cover;
   border: 3px solid var(--color-accent);
   box-shadow: 
-    0 0 20px rgba(59, 130, 246, 0.5),
-    0px 0px 0px 4px rgba(59, 130, 246, 0.2),
-    0px 8px 24px -4px rgba(30, 64, 175, 0.4);
+    0 0 20px rgba(0, 212, 255, 0.5),
+    0px 0px 0px 4px rgba(0, 212, 255, 0.2),
+    0px 8px 24px -4px rgba(0, 180, 220, 0.4);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -63,9 +63,9 @@
   transform: scale(1.05);
   border-color: var(--color-accent-alt);
   box-shadow: 
-    0 0 30px rgba(59, 130, 246, 0.8),
-    0px 0px 0px 4px rgba(96, 165, 250, 0.3),
-    0px 12px 32px -4px rgba(59, 130, 246, 0.5);
+    0 0 30px rgba(0, 212, 255, 0.8),
+    0px 0px 0px 4px rgba(56, 189, 248, 0.3),
+    0px 12px 32px -4px rgba(0, 212, 255, 0.5);
 }
 
 .status-indicator {
@@ -222,8 +222,8 @@
 }
 
 .copy-email-btn {
-  background: var(--color-accent-alt);
-  color: #FFFFFF;
+  background: var(--color-accent);
+  color: #0a0e1a;
   border: none;
   padding: 16px 24px;
   border-radius: 16px;
@@ -232,13 +232,13 @@
   font-family: 'Inter', sans-serif;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .copy-email-btn:hover {
   transform: translateY(-2px);
-  background: var(--color-accent);
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: #38bdf8;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.8), 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .copy-email-btn:active {
@@ -266,11 +266,11 @@
 }
 
 .social-icon-link:hover {
-  background: rgba(59, 130, 246, 0.15);
+  background: rgba(0, 212, 255, 0.15);
   border-color: var(--color-accent);
   color: var(--color-accent);
   transform: translateY(-2px) scale(1.1);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
 }
 
 /* Location Card */

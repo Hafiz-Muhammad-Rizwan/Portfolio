@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(10, 14, 26, 0.85);
   backdrop-filter: blur(20px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 1px solid var(--color-border);
@@ -15,8 +15,8 @@
 }
 
 .navbar.scrolled {
-  background: rgba(15, 23, 42, 0.95);
-  box-shadow: 0px 4px 16px rgba(30, 64, 175, 0.2);
+  background: rgba(10, 14, 26, 0.95);
+  box-shadow: 0px 4px 16px rgba(0, 212, 255, 0.2);
 }
 
 [data-theme="light"] .navbar.scrolled {
@@ -76,18 +76,18 @@
   width: 0;
   height: 2px;
   background: var(--color-accent);
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
 
 .nav-link:hover {
   color: var(--color-text-primary);
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(0, 212, 255, 0.1);
 }
 
 [data-theme="light"] .nav-link:hover {
-  background: rgba(37, 99, 235, 0.08);
+  background: rgba(0, 180, 220, 0.08);
 }
 
 .nav-link:hover::after {
@@ -95,14 +95,14 @@
 }
 
 .download-cv-btn {
-  background: var(--color-accent-alt);
-  color: #FFFFFF;
+  background: var(--color-accent);
+  color: #0a0e1a;
   padding: 0.7rem 1.8rem;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
   border: none;
   display: inline-block;
   font-size: 0.9rem;
@@ -111,19 +111,19 @@
 
 .download-cv-btn:hover {
   transform: translateY(-2px);
-  background: var(--color-accent);
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: #38bdf8;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.8), 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="light"] .download-cv-btn {
   background: var(--color-accent);
-  color: #FFFFFF;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #0a0e1a;
+  box-shadow: 0 0 20px rgba(0, 180, 220, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="light"] .download-cv-btn:hover {
-  background: var(--color-accent-dark);
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.6), 0 8px 24px rgba(0, 0, 0, 0.2);
+  background: #38bdf8;
+  box-shadow: 0 0 30px rgba(0, 180, 220, 0.6), 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Theme Toggle Button */
@@ -146,7 +146,7 @@
   transform: translateY(-2px) rotate(15deg);
   border-color: var(--color-accent);
   background: var(--color-card);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .theme-toggle-icon {

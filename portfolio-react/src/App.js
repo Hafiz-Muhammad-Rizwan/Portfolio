@@ -7,6 +7,7 @@ import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
+import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
       <Portfolio />
       <Education />
       <Certifications />
+      <Testimonials />
       <Contact />
     </div>
   );
