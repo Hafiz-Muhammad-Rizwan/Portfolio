@@ -6,10 +6,22 @@ import { db } from '@/lib/firebase';
 import toast from 'react-hot-toast';
 import { FaPlus, FaEdit, FaTrash, FaBriefcase } from 'react-icons/fa';
 
+interface Experience {
+  id?: string;
+  title: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  current: boolean;
+  description: string;
+  achievements: string[];
+}
+
 export default function ExperienceAdmin() {
-  const [experiences, setExperiences] = useState<any[]>([]);
+  const [experiences, setExperiences] = useState<Experience[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [editingExperience, setEditingExperience] = useState<any>(null);
+  const [editingExperience, setEditingExperience] = useState<Experience | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     company: '',
@@ -28,8 +40,8 @@ export default function ExperienceAdmin() {
   const fetchExperiences = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'experience'));
-      const experienceData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setExperiences(experienceData.sort((a, b) => b.startDate.localeCompare(a.startDate)));
+      const experiencesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as Experience) }));
+      setExperiences(experiencesData.sort((a, b) => b.startDate.localeCompare(a.startDate)));
     } catch (error) {
       console.error('Error fetching experiences:', error);
       toast.error('Failed to load experiences');
@@ -47,7 +59,7 @@ export default function ExperienceAdmin() {
       };
 
       if (editingExperience) {
-        await updateDoc(doc(db, 'experience', editingExperience.id), experienceData);
+        await updateDoc(doc(db, 'experience', editingExperience.id!), experienceData);
         toast.success('Experience updated successfully');
       } else {
         await addDoc(collection(db, 'experience'), {
@@ -178,7 +190,7 @@ export default function ExperienceAdmin() {
                   <FaEdit />
                 </button>
                 <button
-                  onClick={() => handleDelete(exp.id)}
+                  onClick={() => handleDelete(exp.id!)}
                   className="px-4 py-2 bg-neon-pink/20 text-neon-pink rounded-lg hover:bg-neon-pink/30 transition-all duration-300"
                 >
                   <FaTrash />

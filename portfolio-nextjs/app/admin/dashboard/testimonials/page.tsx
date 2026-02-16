@@ -6,10 +6,20 @@ import { db } from '@/lib/firebase';
 import toast from 'react-hot-toast';
 import { FaPlus, FaEdit, FaTrash, FaUpload, FaStar } from 'react-icons/fa';
 
+interface Testimonial {
+  id?: string;
+  name: string;
+  position: string;
+  company: string;
+  image: string;
+  rating: number;
+  text: string;
+}
+
 export default function TestimonialsAdmin() {
-  const [testimonials, setTestimonials] = useState<any[]>([]);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [editingTestimonial, setEditingTestimonial] = useState<any>(null);
+  const [editingTestimonial, setEditingTestimonial] = useState<Testimonial | null>(null);
   const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -27,7 +37,7 @@ export default function TestimonialsAdmin() {
   const fetchTestimonials = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'testimonials'));
-      const testimonialsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const testimonialsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as Testimonial) }));
       setTestimonials(testimonialsData);
     } catch (error) {
       console.error('Error fetching testimonials:', error);
@@ -74,7 +84,7 @@ export default function TestimonialsAdmin() {
       };
 
       if (editingTestimonial) {
-        await updateDoc(doc(db, 'testimonials', editingTestimonial.id), testimonialData);
+        await updateDoc(doc(db, 'testimonials', editingTestimonial.id!), testimonialData);
         toast.success('Testimonial updated successfully');
       } else {
         await addDoc(collection(db, 'testimonials'), {
@@ -188,7 +198,7 @@ export default function TestimonialsAdmin() {
                 <FaEdit className="mx-auto" />
               </button>
               <button
-                onClick={() => handleDelete(testimonial.id)}
+                onClick={() => handleDelete(testimonial.id!)}
                 className="flex-1 px-3 py-2 bg-neon-pink/20 text-neon-pink rounded-lg hover:bg-neon-pink/30 transition-all duration-300"
               >
                 <FaTrash className="mx-auto" />

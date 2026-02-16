@@ -6,10 +6,22 @@ import { db } from '@/lib/firebase';
 import toast from 'react-hot-toast';
 import { FaPlus, FaEdit, FaTrash, FaUpload } from 'react-icons/fa';
 
+interface Project {
+  id?: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string;
+  github: string;
+  live: string;
+  featured: boolean;
+  order: number;
+}
+
 export default function ProjectsAdmin() {
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [editingProject, setEditingProject] = useState<any>(null);
+  const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -29,7 +41,7 @@ export default function ProjectsAdmin() {
   const fetchProjects = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'projects'));
-      const projectsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const projectsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as Project) }));
       setProjects(projectsData);
     } catch (error) {
       console.error('Error fetching projects:', error);
@@ -77,7 +89,7 @@ export default function ProjectsAdmin() {
       };
 
       if (editingProject) {
-        await updateDoc(doc(db, 'projects', editingProject.id), projectData);
+        await updateDoc(doc(db, 'projects', editingProject.id!), projectData);
         toast.success('Project updated successfully');
       } else {
         await addDoc(collection(db, 'projects'), {
@@ -185,7 +197,7 @@ export default function ProjectsAdmin() {
                 Edit
               </button>
               <button
-                onClick={() => handleDelete(project.id)}
+                onClick={() => handleDelete(project.id!)}
                 className="flex-1 px-4 py-2 bg-neon-pink/20 text-neon-pink rounded-lg hover:bg-neon-pink/30 transition-all duration-300 flex items-center justify-center"
               >
                 <FaTrash className="mr-2" />

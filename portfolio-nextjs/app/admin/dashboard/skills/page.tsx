@@ -6,10 +6,18 @@ import { db } from '@/lib/firebase';
 import toast from 'react-hot-toast';
 import { FaPlus, FaEdit, FaTrash, FaUpload } from 'react-icons/fa';
 
+interface Skill {
+  id?: string;
+  name: string;
+  icon: string;
+  level: number;
+  color: string;
+}
+
 export default function SkillsAdmin() {
-  const [skills, setSkills] = useState<any[]>([]);
+  const [skills, setSkills] = useState<Skill[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [editingSkill, setEditingSkill] = useState<any>(null);
+  const [editingSkill, setEditingSkill] = useState<Skill | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     icon: '',
@@ -34,7 +42,7 @@ export default function SkillsAdmin() {
   const fetchSkills = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'skills'));
-      const skillsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const skillsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as Skill) }));
       setSkills(skillsData);
     } catch (error) {
       console.error('Error fetching skills:', error);
@@ -47,7 +55,7 @@ export default function SkillsAdmin() {
 
     try {
       if (editingSkill) {
-        await updateDoc(doc(db, 'skills', editingSkill.id), formData);
+        await updateDoc(doc(db, 'skills', editingSkill.id!), formData);
         toast.success('Skill updated successfully');
       } else {
         await addDoc(collection(db, 'skills'), formData);
@@ -122,7 +130,7 @@ export default function SkillsAdmin() {
                 <FaEdit className="mx-auto" />
               </button>
               <button
-                onClick={() => handleDelete(skill.id)}
+                onClick={() => handleDelete(skill.id!)}
                 className="flex-1 px-3 py-2 bg-neon-pink/20 text-neon-pink rounded-lg hover:bg-neon-pink/30 transition-all duration-300"
               >
                 <FaTrash className="mx-auto" />

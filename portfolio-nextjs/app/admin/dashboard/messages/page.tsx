@@ -6,8 +6,18 @@ import { db } from '@/lib/firebase';
 import toast from 'react-hot-toast';
 import { FaTrash, FaEnvelope, FaCheck, FaEye } from 'react-icons/fa';
 
+interface Message {
+  id?: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  createdAt: string;
+  read: boolean;
+}
+
 export default function MessagesAdmin() {
-  const [messages, setMessages] = useState<any[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [selectedMessage, setSelectedMessage] = useState<any>(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -18,7 +28,7 @@ export default function MessagesAdmin() {
   const fetchMessages = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'messages'));
-      const messagesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const messagesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as Message) }));
       setMessages(messagesData.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
     } catch (error) {
       console.error('Error fetching messages:', error);
@@ -26,14 +36,14 @@ export default function MessagesAdmin() {
     }
   };
 
-  const handleViewMessage = async (message: any) => {
+  const handleViewMessage = async (message: Message) => {
     setSelectedMessage(message);
     setShowModal(true);
 
     // Mark as read
     if (!message.read) {
       try {
-        await updateDoc(doc(db, 'messages', message.id), {
+        await updateDoc(doc(db, 'messages', message.id!), {
           read: true,
         });
         fetchMessages();
@@ -145,7 +155,7 @@ export default function MessagesAdmin() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleDelete(message.id);
+                      handleDelete(message.id!);
                     }}
                     className="px-3 py-2 bg-neon-pink/20 text-neon-pink rounded-lg hover:bg-neon-pink/30 transition-all duration-300"
                     title="Delete Message"
@@ -215,7 +225,7 @@ export default function MessagesAdmin() {
                 </a>
                 <button
                   onClick={() => {
-                    handleDelete(selectedMessage.id);
+                    handleDelete(selectedMessage.id!);
                     setShowModal(false);
                   }}
                   className="flex-1 btn-neon border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-white"

@@ -8,7 +8,7 @@ import { FaPlus, FaEdit, FaTrash, FaUpload, FaExternalLinkAlt } from 'react-icon
 import Image from 'next/image';
 
 interface Certification {
-  id: string;
+  id?: string;
   name: string;
   issuer: string;
   platform: string;
@@ -53,8 +53,8 @@ export default function CertificationsAdmin() {
       const querySnapshot = await getDocs(collection(db, 'certifications'));
       const certsData = querySnapshot.docs.map(doc => ({ 
         id: doc.id, 
-        ...doc.data() 
-      } as Certification));
+        ...(doc.data() as Certification)
+      }));
       certsData.sort((a, b) => (a.order || 0) - (b.order || 0));
       setCertifications(certsData);
     } catch (error) {
@@ -95,7 +95,7 @@ export default function CertificationsAdmin() {
 
     try {
       if (editingCert) {
-        await updateDoc(doc(db, 'certifications', editingCert.id), formData);
+        await updateDoc(doc(db, 'certifications', editingCert.id!), formData);
         toast.success('Certification updated successfully');
       } else {
         await addDoc(collection(db, 'certifications'), formData);
@@ -129,7 +129,7 @@ export default function CertificationsAdmin() {
     setShowModal(true);
   };
 
-  const handleDelete = async (id: string, imageUrl: string) => {
+  const handleDelete = async (id: string, imageUrl?: string) => {
     if (!confirm('Are you sure you want to delete this certification?')) return;
 
     try {
@@ -224,7 +224,7 @@ export default function CertificationsAdmin() {
                   </a>
                 )}
                 <button
-                  onClick={() => handleDelete(cert.id, cert.imageUrl)}
+                  onClick={() => handleDelete(cert.id!, cert.imageUrl)}
                   className="flex-1 px-3 py-2 bg-neon-pink/20 text-neon-pink rounded-lg hover:bg-neon-pink/30 transition-all duration-300 flex items-center justify-center"
                 >
                   <FaTrash />

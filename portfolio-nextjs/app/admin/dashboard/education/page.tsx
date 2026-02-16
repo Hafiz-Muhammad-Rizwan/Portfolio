@@ -6,10 +6,21 @@ import { db } from '@/lib/firebase';
 import toast from 'react-hot-toast';
 import { FaPlus, FaEdit, FaTrash, FaGraduationCap } from 'react-icons/fa';
 
+interface Education {
+  id?: string;
+  degree: string;
+  institution: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  gpa?: string;
+  description?: string;
+}
+
 export default function EducationAdmin() {
-  const [education, setEducation] = useState<any[]>([]);
+  const [education, setEducation] = useState<Education[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [editingEducation, setEditingEducation] = useState<any>(null);
+  const [editingEducation, setEditingEducation] = useState<Education | null>(null);
   const [formData, setFormData] = useState({
     degree: '',
     institution: '',
@@ -27,7 +38,7 @@ export default function EducationAdmin() {
   const fetchEducation = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'education'));
-      const educationData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const educationData = querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as Education) }));
       setEducation(educationData.sort((a, b) => b.startDate.localeCompare(a.startDate)));
     } catch (error) {
       console.error('Error fetching education:', error);
@@ -45,7 +56,7 @@ export default function EducationAdmin() {
       };
 
       if (editingEducation) {
-        await updateDoc(doc(db, 'education', editingEducation.id), educationData);
+        await updateDoc(doc(db, 'education', editingEducation.id!), educationData);
         toast.success('Education updated successfully');
       } else {
         await addDoc(collection(db, 'education'), {
@@ -160,7 +171,7 @@ export default function EducationAdmin() {
                 Edit
               </button>
               <button
-                onClick={() => handleDelete(edu.id)}
+                onClick={() => handleDelete(edu.id!)}
                 className="flex-1 px-4 py-2 bg-neon-pink/20 text-neon-pink rounded-lg hover:bg-neon-pink/30 transition-all duration-300 flex items-center justify-center"
               >
                 <FaTrash className="mr-2" />
