@@ -11,6 +11,20 @@ import {
 import { FaCertificate, FaExternalLinkAlt, FaMicrosoft, FaAws } from 'react-icons/fa';
 import Image from 'next/image';
 
+interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  platform: string;
+  issueDate: string;
+  expiryDate?: string;
+  credentialId?: string;
+  credentialUrl?: string;
+  imageUrl?: string;
+  description?: string;
+  order?: number;
+}
+
 const platformIconMap: any = {
   coursera: SiCoursera,
   udemy: SiUdemy,
@@ -24,14 +38,17 @@ const platformIconMap: any = {
 };
 
 const Certifications = () => {
-  const [certifications, setCertifications] = useState<any[]>([]);
-  const [selectedCert, setSelectedCert] = useState<any>(null);
+  const [certifications, setCertifications] = useState<Certification[]>([]);
+  const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
 
   useEffect(() => {
     const fetchCertifications = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'certifications'));
-        const certsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const certsData = querySnapshot.docs.map(doc => ({ 
+          id: doc.id, 
+          ...doc.data() 
+        } as Certification));
         // Sort by order field
         certsData.sort((a, b) => (a.order || 0) - (b.order || 0));
         setCertifications(certsData);

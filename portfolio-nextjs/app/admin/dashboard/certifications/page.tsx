@@ -7,10 +7,24 @@ import toast from 'react-hot-toast';
 import { FaPlus, FaEdit, FaTrash, FaUpload, FaExternalLinkAlt } from 'react-icons/fa';
 import Image from 'next/image';
 
+interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  platform: string;
+  issueDate: string;
+  expiryDate?: string;
+  credentialId?: string;
+  credentialUrl?: string;
+  imageUrl?: string;
+  description?: string;
+  order?: number;
+}
+
 export default function CertificationsAdmin() {
-  const [certifications, setCertifications] = useState<any[]>([]);
+  const [certifications, setCertifications] = useState<Certification[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [editingCert, setEditingCert] = useState<any>(null);
+  const [editingCert, setEditingCert] = useState<Certification | null>(null);
   const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -37,7 +51,10 @@ export default function CertificationsAdmin() {
   const fetchCertifications = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'certifications'));
-      const certsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const certsData = querySnapshot.docs.map(doc => ({ 
+        id: doc.id, 
+        ...doc.data() 
+      } as Certification));
       certsData.sort((a, b) => (a.order || 0) - (b.order || 0));
       setCertifications(certsData);
     } catch (error) {
@@ -95,7 +112,7 @@ export default function CertificationsAdmin() {
     }
   };
 
-  const handleEdit = (cert: any) => {
+  const handleEdit = (cert: Certification) => {
     setEditingCert(cert);
     setFormData({
       name: cert.name,
