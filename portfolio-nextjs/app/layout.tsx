@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     canonical: process.env.NEXT_PUBLIC_SITE_URL,
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'zdh_uU4EOEQJYNkwxDUgaKZzMoCzjiFWznHJrQ3LhF8',
     yandex: 'your-yandex-verification-code',
   },
   category: 'technology',

@@ -5,6 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Hero = () => {
   const [heroData, setHeroData] = useState<any>(null);
@@ -47,6 +48,25 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8 flex justify-center"
+          >
+            <div className="relative">
+              <Image
+                src="/images/Hafiz Muhammad Rizwan.png"
+                alt="Hafiz Muhammad Rizwan - Software Engineer"
+                width={200}
+                height={200}
+                className="rounded-full border-4 border-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:shadow-[0_0_50px_rgba(59,130,246,0.8)] transition-all duration-300"
+                priority
+              />
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,7 +82,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 gradient-text neon-text">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-[0_0_25px_rgba(59,130,246,0.5)] hover:drop-shadow-[0_0_35px_rgba(59,130,246,0.7)] transition-all duration-300">
               {data.name}
             </h2>
           </motion.div>
