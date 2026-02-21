@@ -26,8 +26,8 @@ const Hero = () => {
   }, []);
 
   const defaultData = {
-    title: 'Full Stack Developer',
-    name: 'Your Name',
+    title: 'Full Stack Developer | Flutter Developer | Spring Boot Developer',
+    name: 'Hafiz Muhammad Rizwan',
     description: 'I create stunning digital experiences that help businesses grow',
     github: 'https://github.com',
     linkedin: 'https://linkedin.com',
