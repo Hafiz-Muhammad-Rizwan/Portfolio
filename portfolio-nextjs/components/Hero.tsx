@@ -6,9 +6,11 @@ import { db } from '@/lib/firebase';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useShaderBackground } from './ui/animated-shader-hero';
 
 const Hero = () => {
   const [heroData, setHeroData] = useState<any>(null);
+  const canvasRef = useShaderBackground();
 
   useEffect(() => {
     const fetchHeroData = async () => {
@@ -39,12 +41,12 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-neon-blue/20 rounded-full filter blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-neon-purple/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-neon-pink/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-      </div>
+      {/* Interactive Shader Background */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full object-contain touch-none"
+        style={{ background: 'black' }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
