@@ -8,6 +8,11 @@ import { FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
 
 const Experience = () => {
   const [experiences, setExperiences] = useState<any[]>([]);
+  const cardStyle = {
+    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+    border: '1px solid rgba(148, 163, 184, 0.22)',
+    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+  };
 
   useEffect(() => {
     const fetchExperiences = async () => {
@@ -67,10 +72,10 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Work Experience
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-teal-400 via-sky-500 to-cyan-400 mx-auto"></div>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -93,17 +98,20 @@ const Experience = () => {
                 <div className="w-full h-full rounded-full bg-neon-blue shadow-neon-blue"></div>
               </div>
 
-              <div className="glass rounded-xl p-6 border border-white/10 hover:border-neon-blue/50 transition-all duration-300 card-hover">
+              <div
+                className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.12)]"
+                style={cardStyle}
+              >
                 <div className="flex flex-wrap justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">{exp.title}</h3>
-                    <div className="flex items-center text-neon-blue mb-2">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{exp.title}</h3>
+                    <div className="flex items-center text-[#06B6D4] mb-2">
                       <FaBriefcase className="mr-2" />
-                      <span>{exp.company}</span>
-                      {exp.location && <span className="ml-2 text-gray-400">• {exp.location}</span>}
+                      <span className="font-semibold">{exp.company}</span>
+                      {exp.location && <span className="ml-2 text-slate-400">• {exp.location}</span>}
                     </div>
                   </div>
-                  <div className="flex items-center text-gray-400 mt-2 md:mt-0">
+                  <div className="flex items-center text-[#06B6D4] mt-2 md:mt-0">
                     <FaCalendarAlt className="mr-2" />
                     <span>
                       {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
@@ -111,13 +119,13 @@ const Experience = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-4">{exp.description}</p>
+                <p className="text-slate-600 mb-4">{exp.description}</p>
 
                 {exp.achievements && exp.achievements.length > 0 && (
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement: string, i: number) => (
-                      <li key={i} className="flex items-start text-gray-400">
-                        <span className="text-neon-purple mr-2">▹</span>
+                      <li key={i} className="flex items-start text-slate-600">
+                        <span className="text-[#3B82F6] mr-2">▹</span>
                         {achievement}
                       </li>
                     ))}

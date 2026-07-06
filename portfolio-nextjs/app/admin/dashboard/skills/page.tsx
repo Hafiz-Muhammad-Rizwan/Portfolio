@@ -26,12 +26,12 @@ export default function SkillsAdmin() {
   });
 
   const iconOptions = [
-  'react', 'nodejs', 'python', 'docker', 'aws', 'git',
-  'html5', 'css3', 'javascript', 'database', 'nextjs',
-  'typescript', 'mongodb', 'postgresql', 'firebase',
-  'tailwindcss', 'express', 'graphql',
-  'flutter', 'java', 'spring', 'dart'
-];
+    'react', 'nodejs', 'python', 'docker', 'aws', 'git',
+    'html5', 'css3', 'javascript', 'database', 'nextjs',
+    'typescript', 'mongodb', 'postgresql', 'firebase',
+    'tailwindcss', 'express', 'graphql',
+    'flutter', 'java', 'spring', 'dart'
+  ];
 
   const colorOptions = ['neon-blue', 'neon-purple', 'neon-pink', 'neon-green', 'neon-yellow'];
 
@@ -200,7 +200,7 @@ export default function SkillsAdmin() {
                   className="w-full px-4 py-3 bg-dark-300 border border-white/10 rounded-lg text-white focus:outline-none focus:border-neon-blue"
                 />
                 <div className="mt-2 w-full bg-dark-300 rounded-full h-2">
-                  <div 
+                  <div
                     className="h-full rounded-full bg-neon-blue transition-all duration-300"
                     style={{ width: `${formData.level}%` }}
                   />

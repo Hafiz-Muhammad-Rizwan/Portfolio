@@ -37,7 +37,7 @@ const Footer = () => {
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
               Building exceptional digital experiences with cutting-edge technologies.
-              Let's create something amazing together.
+              Let&apos;s create something amazing together.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
@@ -96,7 +96,7 @@ const Footer = () => {
             © {currentYear} Premium Portfolio. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm flex items-center">
-            Made with <FaHeart className="text-neon-pink mx-2" /> using Next.js & Firebase
+            Made with <FaHeart className="text-neon-pink mx-2" /> using Next.js &amp; Firebase
           </p>
         </div>
       </div>

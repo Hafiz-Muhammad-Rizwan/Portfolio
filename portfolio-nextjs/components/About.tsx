@@ -8,6 +8,11 @@ import Image from 'next/image';
 
 const About = () => {
   const [aboutData, setAboutData] = useState<any>(null);
+  const statCardStyle = {
+    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+    border: '1px solid rgba(148, 163, 184, 0.22)',
+    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+  };
 
   useEffect(() => {
     const fetchAboutData = async () => {
@@ -48,10 +53,10 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             {data.title}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-teal-400 via-sky-500 to-cyan-400 mx-auto"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -62,7 +67,7 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative w-full h-96 glass rounded-2xl overflow-hidden border-2 border-neon-blue/30 group">
+            <div className="relative w-full h-96 rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-[0_16px_40px_rgba(15,23,42,0.08)] group">
               {data.image && (
                 <Image
                   src={data.image}
@@ -71,10 +76,10 @@ const About = () => {
                   className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-100 via-transparent to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/25 via-transparent to-transparent opacity-60"></div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-neon-purple/20 rounded-full filter blur-3xl"></div>
-            <div className="absolute -top-4 -left-4 w-32 h-32 bg-neon-blue/20 rounded-full filter blur-3xl"></div>
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-cyan-400/15 rounded-full filter blur-3xl"></div>
+            <div className="absolute -top-4 -left-4 w-32 h-32 bg-sky-400/15 rounded-full filter blur-3xl"></div>
           </motion.div>
 
           <motion.div
@@ -83,7 +88,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-lg text-slate-600 leading-relaxed mb-8">
               {data.description}
             </p>
 
@@ -95,10 +100,11 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="glass rounded-xl p-6 text-center border border-neon-blue/20 hover:border-neon-blue/50 transition-all duration-300 card-hover"
+                  className="rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.12)]"
+                  style={statCardStyle}
                 >
-                  <div className="text-3xl font-bold text-neon-blue mb-2">{stat.value}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div className="text-3xl font-bold text-slate-900 mb-2">{stat.value}</div>
+                  <div className="text-sm text-slate-500">{stat.label}</div>
                 </motion.div>
               ))}
             </div>

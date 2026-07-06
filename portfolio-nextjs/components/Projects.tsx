@@ -9,6 +9,11 @@ import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 
 const Projects = () => {
   const [projects, setProjects] = useState<any[]>([]);
+  const cardStyle = {
+    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+    border: '1px solid rgba(148, 163, 184, 0.22)',
+    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+  };
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -67,10 +72,10 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-teal-400 via-sky-500 to-cyan-400 mx-auto"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -81,10 +86,11 @@ const Projects = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="glass rounded-xl overflow-hidden border border-white/10 hover:border-neon-blue/50 transition-all duration-300 card-hover group"
+              className="rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.12)] group"
+              style={cardStyle}
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-dark-300">
+              <div className="relative h-48 overflow-hidden bg-slate-100">
                 {project.image && (
                   <Image
                     src={project.image}
@@ -93,7 +99,7 @@ const Projects = () => {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-100 to-transparent opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent opacity-70"></div>
                 
                 {/* Overlay Icons */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -102,7 +108,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-dark-100/80 text-neon-blue hover:bg-neon-blue hover:text-white transition-all duration-300"
+                      className="p-3 rounded-full bg-white/90 text-cyan-600 hover:bg-cyan-500 hover:text-white transition-all duration-300 border border-slate-200 shadow-sm"
                     >
                       <FaGithub size={24} />
                     </a>
@@ -112,7 +118,7 @@ const Projects = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-dark-100/80 text-neon-purple hover:bg-neon-purple hover:text-white transition-all duration-300"
+                      className="p-3 rounded-full bg-white/90 text-sky-600 hover:bg-sky-500 hover:text-white transition-all duration-300 border border-slate-200 shadow-sm"
                     >
                       <FaExternalLinkAlt size={24} />
                     </a>
@@ -122,10 +128,10 @@ const Projects = () => {
 
               {/* Project Info */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neon-blue transition-colors duration-300">
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                <p className="text-slate-600 text-sm mb-4 line-clamp-3">
                   {project.description}
                 </p>
 
@@ -135,7 +141,7 @@ const Projects = () => {
                     {project.technologies.map((tech: string, i: number) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs rounded-full bg-neon-blue/10 text-neon-blue border border-neon-blue/30"
+                        className="px-3 py-1 text-xs rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200"
                       >
                         {tech}
                       </span>

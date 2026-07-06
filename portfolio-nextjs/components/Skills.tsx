@@ -41,6 +41,11 @@ const iconMap: any = {
 
 const Skills = () => {
   const [skills, setSkills] = useState<any[]>([]);
+  const cardStyle = {
+    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+    border: '1px solid rgba(148, 163, 184, 0.22)',
+    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+  };
 
   useEffect(() => {
     const fetchSkills = async () => {
@@ -73,6 +78,14 @@ const Skills = () => {
 
   const displaySkills = skills.length > 0 ? skills : defaultSkills;
 
+  const colorClasses = {
+    'neon-blue':   { text: 'text-neon-blue' },
+    'neon-purple': { text: 'text-neon-purple' },
+    'neon-pink':   { text: 'text-neon-pink' },
+    'neon-green':  { text: 'text-neon-green' },
+    'neon-yellow': { text: 'text-neon-yellow' },
+  };
+
   return (
     <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,27 +96,17 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-            Skills & Expertise
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            Skills &amp; Expertise
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-teal-400 via-sky-500 to-cyan-400 mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
           {displaySkills.map((skill, index) => {
             const Icon = iconMap[skill.icon] || FaDatabase;
-            
-            // Color mapping for icon and progress bar
-            const colorClasses = {
-              'neon-blue': { text: 'text-neon-blue', gradient: 'from-neon-blue' },
-              'neon-purple': { text: 'text-neon-purple', gradient: 'from-neon-purple' },
-              'neon-pink': { text: 'text-neon-pink', gradient: 'from-neon-pink' },
-              'neon-green': { text: 'text-neon-green', gradient: 'from-neon-green' },
-              'neon-yellow': { text: 'text-neon-yellow', gradient: 'from-neon-yellow' },
-            };
-            
             const colorClass = colorClasses[skill.color as keyof typeof colorClasses] || colorClasses['neon-blue'];
-            
+
             return (
               <motion.div
                 key={index}
@@ -111,25 +114,14 @@ const Skills = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="glass rounded-xl p-6 border border-white/10 hover:border-neon-blue/50 transition-all duration-300 card-hover group"
+                className="rounded-xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.12)] group"
+                style={cardStyle}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className={`text-5xl mb-4 ${colorClass.text} group-hover:animate-glow`}>
+                  <div className={`text-4xl sm:text-5xl mb-3 sm:mb-4 ${colorClass.text} group-hover:animate-glow`}>
                     <Icon />
                   </div>
-                  <h3 className="text-lg font-semibold mb-3 text-white">{skill.name}</h3>
-                  
-                  {/* Progress Bar */}
-                  <div className="w-full bg-gray-800 rounded-full h-2 mb-2">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: index * 0.05 }}
-                      viewport={{ once: true }}
-                      className={`h-full rounded-full bg-gradient-to-r ${colorClass.gradient} to-neon-purple`}
-                    />
-                  </div>
-                  <span className="text-sm text-gray-400">{skill.level}%</span>
+                  <h3 className="text-sm sm:text-lg font-semibold text-slate-900">{skill.name}</h3>
                 </div>
               </motion.div>
             );
