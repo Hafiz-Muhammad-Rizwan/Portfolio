@@ -22,7 +22,8 @@ export async function POST(request: NextRequest) {
     const smtpPass = process.env.SMTP_PASS;
 
     if (smtpHost && smtpUser && smtpPass) {
-      const nodemailer = await import('nodemailer');
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const nodemailer = require('nodemailer');
       const transporter = nodemailer.createTransport({
         host: smtpHost,
         port: Number(process.env.SMTP_PORT || 587),
