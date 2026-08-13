@@ -2,22 +2,37 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hafizmuhammadrizwan.me';
-  
+
   const images = [
     {
-      loc: `${baseUrl}/images/Hafiz%20Muhammad%20Rizwan.png`,
-      title: 'Hafiz Muhammad Rizwan - Software Engineer',
-      caption: 'Professional photo of Hafiz Muhammad Rizwan, Software Engineer at Sevteq specializing in Flutter, Spring Boot, and AI',
+      loc: `${baseUrl}/images/hafiz-muhammad-rizwan-devops-engineer.png`,
+      title: 'Hafiz Muhammad Rizwan - AWS DevOps and Cloud Engineer',
+      caption: 'Profile photo of Hafiz Muhammad Rizwan, Founding DevOps Engineer at Sevteq Solutions specializing in AWS, Terraform, and GitLab CI/CD',
+    },
+    {
+      loc: `${baseUrl}/images/hafiz-rizwan-aws-cloud-engineer-profile.jpg`,
+      title: 'Hafiz Muhammad Rizwan - DevOps Engineer specializing in AWS infrastructure',
+      caption: 'About section photo of Hafiz Muhammad Rizwan, DevOps Engineer building secure cost-optimized cloud infrastructure',
+    },
+    {
+      loc: `${baseUrl}/images/cloud-hafiz-muhammad-rizwan.jpeg`,
+      title: 'AWS VPC Professional Networking Platform — GitLab CI/CD Pipeline',
+      caption: 'AWS ECS Fargate serverless architecture with GitLab CI/CD pipeline built by Hafiz Muhammad Rizwan',
+    },
+    {
+      loc: `${baseUrl}/images/sentimental-analysis-Hafiz Muhammad Rizwan.png`,
+      title: 'Smart Product Analyzer — RoBERTa NLP Sentiment Analysis',
+      caption: 'NLP project using fine-tuned RoBERTa transformer model for Amazon product review classification',
+    },
+    {
+      loc: `${baseUrl}/images/roomatchpk-Hafiz Muhammad Rizwan.png`,
+      title: 'Roomatch Pk — Student Accommodation Marketplace',
+      caption: 'Cross-platform Flutter accommodation marketplace connecting students with verified hosts',
     },
     {
       loc: `${baseUrl}/opengraph-image`,
-      title: 'Hafiz Muhammad Rizwan Portfolio',
-      caption: 'Software Engineer and AI Specialist - Portfolio Website',
-    },
-    {
-      loc: `${baseUrl}/images/favicon.svg`,
-      title: 'Hafiz Muhammad Rizwan Logo',
-      caption: 'Professional brand logo',
+      title: 'Hafiz Muhammad Rizwan | AWS DevOps & Cloud Engineer',
+      caption: 'DevOps Engineer specializing in AWS, Terraform, and CI/CD — Portfolio Website',
     },
   ];
 
