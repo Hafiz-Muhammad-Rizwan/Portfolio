@@ -10,17 +10,18 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://hafizmuhammadrizwan.me'),
   title: {
-    default: 'Hafiz Muhammad Rizwan | Software Engineer & AI Specialist',
+    default: 'Hafiz Muhammad Rizwan | AWS DevOps & Cloud Engineer',
     template: '%s | Hafiz Muhammad Rizwan'
   },
-  description: 'Portfolio of Hafiz Muhammad Rizwan, a Software Engineer at Sevteq. Specializing in scalable mobile apps (Flutter), robust backends (Spring Boot), and AI integration.',
+  description: 'DevOps Engineer specializing in AWS, Terraform, and CI/CD. I build secure, cost-optimized cloud infrastructure with ECS Fargate, IAM, and GitLab pipelines.',
   keywords: [
-    // Identity & Location
-    'Hafiz Muhammad Rizwan', 'Software Engineer Pakistan', 'Faisalabad Developer', 'Sevteq Engineer', 'FAST-NUCES Student',
-    // Core Tech
-    'Flutter Developer', 'Spring Boot Developer', 'AI Engineer', 'Full Stack Developer',
-    // Specific Tools
-    'React', 'Next.js', 'TypeScript', 'Dart', 'RoBERTa', 'Machine Learning', 'Firebase'
+    'DevOps Engineer', 'AWS Cloud Engineer', 'Terraform', 'Infrastructure as Code',
+    'AWS ECS Fargate', 'CI/CD Pipeline', 'GitLab CI/CD', 'Docker', 'AWS IAM',
+    'AWS WAF', 'AWS CloudWatch', 'Cloud Cost Optimization', 'AWS Certified Cloud Practitioner',
+    'DevOps Engineer Pakistan', 'FAST-NUCES', 'Junior AWS DevOps Engineer',
+    'Hafiz Muhammad Rizwan', 'JA3 fingerprinting bot detection',
+    'VPC PrivateLink NAT Gateway alternative', 'AWS serverless cost optimization',
+    'Cloud Automation', 'Zero-downtime deployment'
   ],
   authors: [{ name: 'Hafiz Muhammad Rizwan', url: 'https://hafizmuhammadrizwan.me' }],
   creator: 'Hafiz Muhammad Rizwan',
@@ -35,21 +36,21 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://hafizmuhammadrizwan.me',
     siteName: 'Hafiz Muhammad Rizwan Portfolio',
-    title: 'Hafiz Muhammad Rizwan | Software Engineer',
-    description: 'Building scalable mobile & web solutions. Engineer at Sevteq, Student at FAST-NUCES.',
+    title: 'Hafiz Muhammad Rizwan | AWS DevOps & Cloud Engineer',
+    description: 'DevOps Engineer specializing in AWS, Terraform, and CI/CD. Secure, cost-optimized cloud infrastructure with ECS Fargate, IAM, and GitLab pipelines.',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Hafiz Muhammad Rizwan - Software Engineer',
+        alt: 'Hafiz Muhammad Rizwan - AWS DevOps and Cloud Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hafiz Muhammad Rizwan | Software Engineer',
-    description: 'Specializing in Flutter, Spring Boot, and AI Solutions.',
+    title: 'Hafiz Muhammad Rizwan | AWS DevOps & Cloud Engineer',
+    description: 'DevOps Engineer specializing in AWS, Terraform, and CI/CD pipelines.',
     images: ['/opengraph-image'],
     creator: '@hafizrizwan',
   },
@@ -95,32 +96,36 @@ export default function RootLayout({
         url: 'https://hafizmuhammadrizwan.me',
         image: {
           '@type': 'ImageObject',
-          url: 'https://hafizmuhammadrizwan.me/opengraph-image',
-          width: 1200,
-          height: 630,
+          url: 'https://hafizmuhammadrizwan.me/images/hafiz-muhammad-rizwan-devops-engineer.png',
+          width: 800,
+          height: 800,
         },
         sameAs: [
           'https://github.com/Hafiz-Muhammad-Rizwan',
-          'https://www.linkedin.com/in/hafiz-muhammad-rizwan-33328a374',
+          'https://www.linkedin.com/in/hafiz-muhammad-rizwanrizwan-33328a374',
         ],
-        jobTitle: 'Software Engineer',
+        jobTitle: 'DevOps Engineer',
         worksFor: {
           '@type': 'Organization',
-          name: 'Sevteq',
+          name: 'Sevteq Solutions',
         },
         alumniOf: {
           '@type': 'CollegeOrUniversity',
           name: 'FAST-NUCES',
         },
-        knowsAbout: ['Software Engineering', 'Flutter', 'Spring Boot', 'Artificial Intelligence', 'React'],
-        description: 'Software Engineer specializing in mobile (Flutter) and backend (Spring Boot) development.',
+        knowsAbout: [
+          'DevOps Engineering', 'AWS Cloud', 'Terraform', 'Infrastructure as Code',
+          'AWS ECS Fargate', 'GitLab CI/CD', 'Docker', 'AWS WAF', 'AWS CloudWatch',
+          'Cloud Cost Optimization', 'Zero-downtime Deployment'
+        ],
+        description: 'DevOps Engineer specializing in AWS, Terraform, and CI/CD. Building secure, cost-optimized cloud infrastructure with ECS Fargate, IAM, and GitLab pipelines.',
       },
       {
         '@type': 'WebSite',
         '@id': 'https://hafizmuhammadrizwan.me/#website',
         url: 'https://hafizmuhammadrizwan.me',
-        name: 'Hafiz Muhammad Rizwan Portfolio',
-        description: 'Professional portfolio showcasing web development projects and skills',
+        name: 'Hafiz Muhammad Rizwan — AWS DevOps & Cloud Engineer',
+        description: 'Professional portfolio showcasing DevOps, AWS cloud infrastructure, and CI/CD projects',
         publisher: {
           '@id': 'https://hafizmuhammadrizwan.me/#person',
         },
@@ -130,22 +135,22 @@ export default function RootLayout({
         '@type': 'WebPage',
         '@id': 'https://hafizmuhammadrizwan.me/#webpage',
         url: 'https://hafizmuhammadrizwan.me',
-        name: 'Hafiz Muhammad Rizwan | Software Engineer & AI Specialist',
+        name: 'Hafiz Muhammad Rizwan | AWS DevOps & Cloud Engineer',
         isPartOf: {
           '@id': 'https://hafizmuhammadrizwan.me/#website',
         },
         about: {
           '@id': 'https://hafizmuhammadrizwan.me/#person',
         },
-        description: 'Building scalable mobile & web solutions. Engineer at Sevteq, Student at FAST-NUCES.',
+        description: 'DevOps Engineer specializing in AWS, Terraform, and CI/CD. Founding DevOps Engineer at Sevteq Solutions, Student at FAST-NUCES.',
         inLanguage: 'en-US',
       },
       {
         '@type': 'CollectionPage',
         '@id': 'https://hafizmuhammadrizwan.me/#projects',
         url: 'https://hafizmuhammadrizwan.me/#projects',
-        name: 'Projects Portfolio',
-        description: 'Collection of web development and mobile application projects',
+        name: 'DevOps & Cloud Projects Portfolio',
+        description: 'Collection of AWS cloud infrastructure, CI/CD, and DevOps automation projects',
       },
     ],
   };

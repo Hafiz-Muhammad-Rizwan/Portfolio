@@ -36,8 +36,8 @@ const Footer = () => {
               Portfolio<span className="text-neon-blue">.</span>
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
-              Building exceptional digital experiences with cutting-edge technologies.
-              Let&apos;s create something amazing together.
+              Building secure, cost-optimized cloud infrastructure with AWS, Terraform,
+              and GitLab CI/CD. Let&apos;s create something amazing together.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
@@ -93,7 +93,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {currentYear} Premium Portfolio. All rights reserved.
+            © {currentYear} Hafiz Muhammad Rizwan. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm flex items-center">
             Made with <FaHeart className="text-neon-pink mx-2" /> using Next.js &amp; Firebase

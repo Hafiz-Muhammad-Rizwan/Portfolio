@@ -1,57 +1,26 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
+const cardStyle = {
+  background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+  border: '1px solid rgba(148, 163, 184, 0.22)',
+  boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+};
+
+const educationList = [
+  {
+    degree: 'BS (Software Engineering)',
+    institution: 'NUCES FAST',
+    location: 'Pakistan',
+    startDate: '2023',
+    endDate: '2027',
+    description: 'Pursuing a Bachelor\'s in Software Engineering with a focus on scalable full-stack development and AI integration.',
+  },
+];
+
 const Education = () => {
-  const [education, setEducation] = useState<any[]>([]);
-  const cardStyle = {
-    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
-    border: '1px solid rgba(148, 163, 184, 0.22)',
-    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
-  };
-
-  useEffect(() => {
-    const fetchEducation = async () => {
-      try {
-        const q = query(collection(db, 'education'), orderBy('startDate', 'desc'));
-        const querySnapshot = await getDocs(q);
-        const educationData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setEducation(educationData);
-      } catch (error) {
-        console.error('Error fetching education:', error);
-      }
-    };
-
-    fetchEducation();
-  }, []);
-
-  const defaultEducation = [
-    {
-      degree: 'Master of Science in Computer Science',
-      institution: 'University of Technology',
-      location: 'San Francisco, CA',
-      startDate: '2018',
-      endDate: '2020',
-      gpa: '3.9/4.0',
-      description: 'Specialized in Machine Learning and Artificial Intelligence',
-    },
-    {
-      degree: 'Bachelor of Science in Software Engineering',
-      institution: 'State University',
-      location: 'Boston, MA',
-      startDate: '2014',
-      endDate: '2018',
-      gpa: '3.7/4.0',
-      description: 'Focus on Web Development and Database Systems',
-    },
-  ];
-
-  const displayEducation = education.length > 0 ? education : defaultEducation;
-
   return (
     <section id="education" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,7 +38,7 @@ const Education = () => {
         </motion.div>
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-          {displayEducation.map((edu, index) => (
+          {educationList.map((edu, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -100,11 +69,6 @@ const Education = () => {
                   <FaCalendarAlt className="mr-2 text-cyan-600" />
                   <span>{edu.startDate} - {edu.endDate}</span>
                 </div>
-                {edu.gpa && (
-                  <div className="text-slate-600">
-                    <span className="text-cyan-600">GPA:</span> {edu.gpa}
-                  </div>
-                )}
               </div>
 
               {edu.description && (

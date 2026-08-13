@@ -1,41 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const Hero = () => {
-  const [heroData, setHeroData] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchHeroData = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'hero'));
-        if (!querySnapshot.empty) {
-          setHeroData({ id: querySnapshot.docs[0].id, ...querySnapshot.docs[0].data() });
-        }
-      } catch (error) {
-        console.error('Error fetching hero data:', error);
-      }
-    };
-    fetchHeroData();
-  }, []);
-
-  const defaultData = {
-    title: 'Software Engineer',
-    name: 'Hafiz Muhammad Rizwan',
-    description: 'I create stunning digital experiences that help businesses grow',
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-    twitter: 'https://twitter.com',
-    email: 'contact@example.com',
-  };
-
-  const data = heroData || defaultData;
-
   return (
     <section
       id="home"
@@ -78,8 +47,8 @@ const Hero = () => {
                 style={{ background: 'linear-gradient(135deg, #00d4ff, #a855f7, #f472b6)' }}
               />
               <Image
-                src="/images/Hafiz Muhammad Rizwan.png"
-                alt="Hafiz Muhammad Rizwan - Software Engineer"
+                src="/images/hafiz-muhammad-rizwan-devops-engineer.png"
+                alt="Hafiz Muhammad Rizwan, AWS DevOps and Cloud Engineer"
                 width={200}
                 height={200}
                 className="relative rounded-full"
@@ -99,7 +68,7 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
           >
             <p className="text-sm sm:text-base md:text-lg font-semibold mb-4 tracking-widest uppercase text-neon-blue">
-              {data.title}
+              DevOps Engineer | Cloud &amp; Automation
             </p>
           </motion.div>
 
@@ -113,7 +82,7 @@ const Hero = () => {
               className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gray-900"
               style={{ letterSpacing: '-0.02em', lineHeight: 1.08 }}
             >
-              {data.name}
+              Hafiz Muhammad Rizwan
             </h1>
           </motion.div>
 
@@ -124,7 +93,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <p className="text-base sm:text-xl md:text-2xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed">
-              {data.description}
+              I make sure your app stays up while everyone else is asleep.
             </p>
           </motion.div>
 
@@ -156,10 +125,10 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.8 }}
             className="flex justify-center space-x-6"
           >
-            <a href={data.github}           target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-blue  transition-all duration-300 hover:animate-glow"><FaGithub   /></a>
-            <a href={data.linkedin}         target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-blue  transition-all duration-300 hover:animate-glow"><FaLinkedin /></a>
-            <a href={data.twitter}          target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-purple transition-all duration-300 hover:animate-glow"><FaTwitter  /></a>
-            <a href={`mailto:${data.email}`}                                          className="text-3xl text-gray-400 hover:text-neon-pink   transition-all duration-300 hover:animate-glow"><FaEnvelope /></a>
+            <a href="https://github.com/Hafiz-Muhammad-Rizwan"         target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-blue  transition-all duration-300 hover:animate-glow"><FaGithub   /></a>
+            <a href="https://www.linkedin.com/in/hafiz-muhammad-rizwanrizwan-33328a374" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-blue  transition-all duration-300 hover:animate-glow"><FaLinkedin /></a>
+            <a href="https://twitter.com/hafizrizwan"                  target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-purple transition-all duration-300 hover:animate-glow"><FaTwitter  /></a>
+            <a href="mailto:hafizmuhammadrizwan359@gmail.com"                                                    className="text-3xl text-gray-400 hover:text-neon-pink   transition-all duration-300 hover:animate-glow"><FaEnvelope /></a>
           </motion.div>
         </div>
       </div>

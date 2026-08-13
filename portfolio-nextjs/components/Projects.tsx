@@ -1,67 +1,64 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 
+const cardStyle = {
+  background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+  border: '1px solid rgba(148, 163, 184, 0.22)',
+  boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+};
+
+const projects = [
+  {
+    title: 'Smart Product Analyzer',
+    description: 'Combats Analysis Paralysis by using a fine-tuned RoBERTa transformer model to instantly classify Amazon product reviews as positive or negative.',
+    image: '/images/sentimental-analysis-Hafiz Muhammad Rizwan.png',
+    imageAlt: 'Smart Product Analyzer — RoBERTa NLP sentiment analysis project by Hafiz Muhammad Rizwan',
+    technologies: ['Python', 'NLP', 'NLTK'],
+    github: 'https://github.com/Hafiz-Muhammad-Rizwan',
+    live: null,
+  },
+  {
+    title: 'Banking App System',
+    description: 'A secure financial platform ensuring data integrity during concurrent transactions using strict row-level locking and a robust Spring Boot backend.',
+    image: '/images/banking-app-Hafiz Muhammad Rizwan.jpg',
+    imageAlt: 'Banking App System — Spring Boot and Flutter banking application by Hafiz Muhammad Rizwan',
+    technologies: ['Flutter', 'Spring Boot', 'Provider', 'MySQL'],
+    github: 'https://github.com/Hafiz-Muhammad-Rizwan',
+    live: null,
+  },
+  {
+    title: 'Professional Networking Platform',
+    description: 'Deploys a full-stack platform on a secure AWS VPC with public/private subnets. It automates multi-tier deployment using a robust GitLab CI/CD pipeline.',
+    image: '/images/cloud-hafiz-muhammad-rizwan.jpeg',
+    imageAlt: 'AWS VPC professional networking platform with GitLab CI/CD pipeline by Hafiz Muhammad Rizwan',
+    technologies: ['DevOps', 'AWS', 'GitLab', 'CI/CD'],
+    github: 'https://github.com/Hafiz-Muhammad-Rizwan',
+    live: null,
+  },
+  {
+    title: 'Voter List Management System',
+    description: 'SmartVote replaces slow paper voter lists with an app that lets polling officers verify citizens instantly via CNIC. Solves double voting by updating status in real-time right at the booth.',
+    image: '/images/voter-list-management-Hafiz Muhammad Rizwan.jpg',
+    imageAlt: 'SmartVote voter list management system by Hafiz Muhammad Rizwan',
+    technologies: ['Flutter', 'Dart', 'Provider'],
+    github: 'https://github.com/Hafiz-Muhammad-Rizwan',
+    live: null,
+  },
+  {
+    title: 'Roomatch Pk (Airbnb for Students)',
+    description: 'A cross-platform accommodation marketplace connecting students with verified hosts, featuring real-time booking and a comprehensive admin dashboard.',
+    image: '/images/roomatchpk-Hafiz Muhammad Rizwan.png',
+    imageAlt: 'Roomatch Pk student accommodation marketplace app by Hafiz Muhammad Rizwan',
+    technologies: ['Flutter', 'Dart', 'Provider', 'MongoDB', 'Next.js'],
+    github: 'https://github.com/Hafiz-Muhammad-Rizwan',
+    live: null,
+  },
+];
+
 const Projects = () => {
-  const [projects, setProjects] = useState<any[]>([]);
-  const cardStyle = {
-    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
-    border: '1px solid rgba(148, 163, 184, 0.22)',
-    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
-  };
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const q = query(collection(db, 'projects'), orderBy('order', 'asc'));
-        const querySnapshot = await getDocs(q);
-        const projectsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setProjects(projectsData);
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
-  const defaultProjects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with payment integration, admin dashboard, and real-time inventory management.',
-      image: '/project1.jpg',
-      technologies: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
-      github: 'https://github.com',
-      live: 'https://example.com',
-      featured: true,
-    },
-    {
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for managing multiple social media accounts with automated posting and engagement tracking.',
-      image: '/project2.jpg',
-      technologies: ['React', 'TypeScript', 'Firebase', 'Chart.js'],
-      github: 'https://github.com',
-      live: 'https://example.com',
-      featured: true,
-    },
-    {
-      title: 'AI Chat Application',
-      description: 'Real-time chat application with AI-powered responses and sentiment analysis.',
-      image: '/project3.jpg',
-      technologies: ['Next.js', 'OpenAI', 'Prisma', 'PostgreSQL'],
-      github: 'https://github.com',
-      live: 'https://example.com',
-      featured: false,
-    },
-  ];
-
-  const displayProjects = projects.length > 0 ? projects : defaultProjects;
-
   return (
     <section id="projects" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,7 +76,7 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -91,14 +88,12 @@ const Projects = () => {
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden bg-slate-100">
-                {project.image && (
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                )}
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent opacity-70"></div>
                 
                 {/* Overlay Icons */}
@@ -136,18 +131,16 @@ const Projects = () => {
                 </p>
 
                 {/* Technologies */}
-                {project.technologies && (
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech: string, i: number) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 text-xs rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 text-xs rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -162,7 +155,7 @@ const Projects = () => {
           className="text-center mt-12"
         >
           <a
-            href="https://github.com"
+            href="https://github.com/Hafiz-Muhammad-Rizwan"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center btn-neon border-neon-purple text-neon-purple hover:bg-neon-purple hover:text-white"
