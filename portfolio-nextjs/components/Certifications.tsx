@@ -1,71 +1,108 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  SiCoursera, SiUdemy, SiGoogle, 
-  SiAmazon, SiLinkedin
+  SiCoursera, SiUdemy
 } from 'react-icons/si';
-import { FaCertificate, FaExternalLinkAlt, FaMicrosoft, FaAws } from 'react-icons/fa';
+import { FaCertificate, FaExternalLinkAlt, FaAws } from 'react-icons/fa';
 import Image from 'next/image';
 
 interface Certification {
   id: string;
   name: string;
   issuer: string;
-  platform: string;
+  platform: 'coursera' | 'udemy' | 'aws' | 'other';
   issueDate: string;
-  expiryDate?: string;
   credentialId?: string;
   credentialUrl?: string;
-  imageUrl?: string;
-  description?: string;
-  order?: number;
+  imageUrl: string;
 }
 
-const platformIconMap: any = {
+const platformIconMap = {
   coursera: SiCoursera,
-  udemy: SiUdemy,
-  google: SiGoogle,
-  microsoft: FaMicrosoft,
-  aws: FaAws,
-  ibm: FaCertificate,
-  linkedin: SiLinkedin,
-  meta: SiAmazon,
-  other: FaCertificate,
+  udemy:    SiUdemy,
+  aws:      FaAws,
+  other:    FaCertificate,
 };
 
+const cardStyle = {
+  background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+  border: '1px solid rgba(148, 163, 184, 0.22)',
+  boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+};
+
+const certifications: Certification[] = [
+  {
+    id: '1',
+    name: 'Flutter and Dart: Developing iOS, Android, and Mobile Apps',
+    issuer: 'Coursera',
+    platform: 'coursera',
+    issueDate: 'Jan 2026',
+    credentialId: 'G335TBGX2GKW',
+    credentialUrl: 'https://coursera.org/verify/G335TBGX2GKW',
+    imageUrl: '/images/Flutter IBM- Hafiz Muhammad Rizwan.jpeg',
+  },
+  {
+    id: '2',
+    name: 'Python for Data Science, AI & Development',
+    issuer: 'Coursera',
+    platform: 'coursera',
+    issueDate: 'Oct 2025',
+    credentialId: 'L920C94VN3ZV',
+    credentialUrl: 'https://coursera.org/verify/L920C94VN3ZV',
+    imageUrl: '/images/AI For Everyone -Hafiz Muhammad Rizwan.jpeg',
+  },
+  {
+    id: '3',
+    name: 'AWS Hands on Introduction',
+    issuer: 'Udemy',
+    platform: 'udemy',
+    issueDate: 'May 2026',
+    imageUrl: '/images/AWS Hands On-Hafiz Muhammad Rizwan.jpg',
+  },
+  {
+    id: '4',
+    name: 'Java Spring Boot',
+    issuer: 'Coursera',
+    platform: 'coursera',
+    issueDate: 'Dec 2025',
+    credentialId: 'NS3IOWV0QZIB',
+    credentialUrl: 'https://coursera.org/verify/NS3IOWV0QZIB',
+    imageUrl: '/images/Spring Boot - Hafiz Muhammad Rizwan.jpeg',
+  },
+  {
+    id: '5',
+    name: 'AI For Everyone',
+    issuer: 'Coursera',
+    platform: 'coursera',
+    issueDate: 'Aug 2025',
+    credentialId: 'CTIOH9F2A7D5',
+    credentialUrl: 'https://coursera.org/verify/CTIOH9F2A7D5',
+    imageUrl: '/images/AI For Everyone -Hafiz Muhammad Rizwan.jpeg',
+  },
+  {
+    id: '6',
+    name: 'AWS Cloud Practitioner Essential',
+    issuer: 'AWS',
+    platform: 'aws',
+    issueDate: 'March 29',
+    imageUrl: '/images/AWS Cloud Practitioner-Hafiz Muhammad Rizwan.png',
+  },
+  {
+    id: '7',
+    name: 'Java Script',
+    issuer: 'Coursera',
+    platform: 'coursera',
+    issueDate: 'Jul 2025',
+    credentialId: 'O6ADC3W0RHEF',
+    credentialUrl: 'https://coursera.org/verify/O6ADC3W0RHEF',
+    imageUrl: '/images/java Script- Hafiz Muhammad Rizwan.jpeg',
+  },
+];
+
 const Certifications = () => {
-  const [certifications, setCertifications] = useState<Certification[]>([]);
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
-  const cardStyle = {
-    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
-    border: '1px solid rgba(148, 163, 184, 0.22)',
-    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
-  };
-
-  useEffect(() => {
-    const fetchCertifications = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'certifications'));
-        const certsData = querySnapshot.docs.map(doc => ({ 
-          id: doc.id, 
-          ...doc.data() 
-        } as Certification));
-        // Sort by order field
-        certsData.sort((a, b) => (a.order || 0) - (b.order || 0));
-        setCertifications(certsData);
-      } catch (error) {
-        console.error('Error fetching certifications:', error);
-      }
-    };
-
-    fetchCertifications();
-  }, []);
-
-  if (certifications.length === 0) return null;
 
   return (
     <section id="certifications" className="py-20 relative">
@@ -99,17 +136,15 @@ const Certifications = () => {
                 onClick={() => setSelectedCert(cert)}
               >
                 {/* Certificate Image */}
-                {cert.imageUrl && (
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src={cert.imageUrl}
-                      alt={cert.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent"></div>
-                  </div>
-                )}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={cert.imageUrl}
+                    alt={`${cert.name} certificate — ${cert.issuer}`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent"></div>
+                </div>
 
                 <div className="p-6">
                   {/* Platform Icon */}
@@ -126,7 +161,6 @@ const Certifications = () => {
                   {/* Date */}
                   <div className="flex items-center justify-between text-sm text-slate-500 mb-4">
                     <span>Issued: {cert.issueDate}</span>
-                    {cert.expiryDate && <span>Expires: {cert.expiryDate}</span>}
                   </div>
 
                   {/* Credential ID */}
@@ -168,25 +202,19 @@ const Certifications = () => {
             style={cardStyle}
             onClick={(e) => e.stopPropagation()}
           >
-            {selectedCert.imageUrl && (
-              <div className="relative w-full h-96">
-                <Image
-                  src={selectedCert.imageUrl}
-                  alt={selectedCert.name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            )}
+            <div className="relative w-full h-96">
+              <Image
+                src={selectedCert.imageUrl}
+                alt={`${selectedCert.name} certificate — ${selectedCert.issuer}`}
+                fill
+                className="object-contain"
+              />
+            </div>
             <div className="p-6">
               <h3 className="text-2xl font-bold text-slate-900 mb-2">{selectedCert.name}</h3>
               <p className="text-slate-500 mb-4">{selectedCert.issuer}</p>
-              {selectedCert.description && (
-                <p className="text-slate-600 mb-4">{selectedCert.description}</p>
-              )}
               <div className="flex flex-wrap gap-4 text-sm text-slate-500">
                 <span>Issued: {selectedCert.issueDate}</span>
-                {selectedCert.expiryDate && <span>Expires: {selectedCert.expiryDate}</span>}
                 {selectedCert.credentialId && <span>ID: {selectedCert.credentialId}</span>}
               </div>
               {selectedCert.credentialUrl && (

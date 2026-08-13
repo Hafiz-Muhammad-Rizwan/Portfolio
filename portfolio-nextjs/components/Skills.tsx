@@ -1,91 +1,43 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 import { motion } from 'framer-motion';
 import { 
-  FaReact, FaNodeJs, FaPython, FaDocker, FaAws, FaGitAlt,
-  FaHtml5, FaCss3Alt, FaJs, FaDatabase, FaJava
+  FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaJava
 } from 'react-icons/fa';
 import { 
-  SiNextdotjs, SiTypescript, SiMongodb, SiPostgresql, 
-  SiFirebase, SiTailwindcss, SiExpress, SiGraphql,
-  SiFlutter, SiDart, SiSpring
+  SiMongodb, SiFirebase, SiFlutter, SiDart, SiSpring, SiTerraform
 } from 'react-icons/si';
 
-const iconMap: any = {
-  react: FaReact,
-  nodejs: FaNodeJs,
-  python: FaPython,
-  docker: FaDocker,
-  aws: FaAws,
-  git: FaGitAlt,
-  html5: FaHtml5,
-  css3: FaCss3Alt,
-  javascript: FaJs,
-  database: FaDatabase,
-  nextjs: SiNextdotjs,
-  typescript: SiTypescript,
-  mongodb: SiMongodb,
-  postgresql: SiPostgresql,
-  firebase: SiFirebase,
-  tailwindcss: SiTailwindcss,
-  express: SiExpress,
-  graphql: SiGraphql,
-  flutter: SiFlutter,
-  dart: SiDart,
-  java: FaJava,
-  spring: SiSpring,
+const cardStyle = {
+  background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+  border: '1px solid rgba(148, 163, 184, 0.22)',
+  boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+};
+
+const skills = [
+  { name: 'Git',        icon: FaGitAlt,   color: 'neon-pink'   },
+  { name: 'AWS',        icon: FaAws,      color: 'neon-yellow' },
+  { name: 'Java',       icon: FaJava,     color: 'neon-blue'   },
+  { name: 'React',      icon: FaReact,    color: 'neon-blue'   },
+  { name: 'Flutter',    icon: SiFlutter,  color: 'neon-blue'   },
+  { name: 'Docker',     icon: FaDocker,   color: 'neon-blue'   },
+  { name: 'Dart',       icon: SiDart,     color: 'neon-blue'   },
+  { name: 'MongoDB',    icon: SiMongodb,  color: 'neon-green'  },
+  { name: 'Firebase',   icon: SiFirebase, color: 'neon-yellow' },
+  { name: 'Node.js',    icon: FaNodeJs,   color: 'neon-green'  },
+  { name: 'Spring Boot',icon: SiSpring,   color: 'neon-green'  },
+  { name: 'Terraform',  icon: SiTerraform,color: 'neon-purple' },
+];
+
+const colorClasses: Record<string, string> = {
+  'neon-blue':   'text-neon-blue',
+  'neon-purple': 'text-neon-purple',
+  'neon-pink':   'text-neon-pink',
+  'neon-green':  'text-neon-green',
+  'neon-yellow': 'text-neon-yellow',
 };
 
 const Skills = () => {
-  const [skills, setSkills] = useState<any[]>([]);
-  const cardStyle = {
-    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
-    border: '1px solid rgba(148, 163, 184, 0.22)',
-    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
-  };
-
-  useEffect(() => {
-    const fetchSkills = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'skills'));
-        const skillsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setSkills(skillsData);
-      } catch (error) {
-        console.error('Error fetching skills:', error);
-      }
-    };
-
-    fetchSkills();
-  }, []);
-
-  const defaultSkills = [
-    { name: 'React', icon: 'react', level: 95, color: 'neon-blue' },
-    { name: 'Next.js', icon: 'nextjs', level: 90, color: 'neon-blue' },
-    { name: 'TypeScript', icon: 'typescript', level: 88, color: 'neon-purple' },
-    { name: 'Node.js', icon: 'nodejs', level: 92, color: 'neon-green' },
-    { name: 'Python', icon: 'python', level: 85, color: 'neon-yellow' },
-    { name: 'MongoDB', icon: 'mongodb', level: 87, color: 'neon-green' },
-    { name: 'PostgreSQL', icon: 'postgresql', level: 83, color: 'neon-blue' },
-    { name: 'Firebase', icon: 'firebase', level: 90, color: 'neon-pink' },
-    { name: 'AWS', icon: 'aws', level: 80, color: 'neon-yellow' },
-    { name: 'Docker', icon: 'docker', level: 85, color: 'neon-blue' },
-    { name: 'Tailwind CSS', icon: 'tailwind', level: 95, color: 'neon-blue' },
-    { name: 'GraphQL', icon: 'graphql', level: 82, color: 'neon-pink' },
-  ];
-
-  const displaySkills = skills.length > 0 ? skills : defaultSkills;
-
-  const colorClasses = {
-    'neon-blue':   { text: 'text-neon-blue' },
-    'neon-purple': { text: 'text-neon-purple' },
-    'neon-pink':   { text: 'text-neon-pink' },
-    'neon-green':  { text: 'text-neon-green' },
-    'neon-yellow': { text: 'text-neon-yellow' },
-  };
-
   return (
     <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,9 +55,9 @@ const Skills = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
-          {displaySkills.map((skill, index) => {
-            const Icon = iconMap[skill.icon] || FaDatabase;
-            const colorClass = colorClasses[skill.color as keyof typeof colorClasses] || colorClasses['neon-blue'];
+          {skills.map((skill, index) => {
+            const Icon = skill.icon;
+            const colorClass = colorClasses[skill.color] || colorClasses['neon-blue'];
 
             return (
               <motion.div
@@ -118,7 +70,7 @@ const Skills = () => {
                 style={cardStyle}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className={`text-4xl sm:text-5xl mb-3 sm:mb-4 ${colorClass.text} group-hover:animate-glow`}>
+                  <div className={`text-4xl sm:text-5xl mb-3 sm:mb-4 ${colorClass} group-hover:animate-glow`}>
                     <Icon />
                   </div>
                   <h3 className="text-sm sm:text-lg font-semibold text-slate-900">{skill.name}</h3>

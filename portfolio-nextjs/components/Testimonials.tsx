@@ -1,60 +1,54 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
 
+const cardStyle = {
+  background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
+  border: '1px solid rgba(148, 163, 184, 0.22)',
+  boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
+};
+
+const testimonials = [
+  {
+    name: 'Muhammad Usman Anwer',
+    position: 'Software Engineer',
+    image: '/images/usman.jpeg',
+    rating: 5,
+    text: 'I had the great experience of working alongside Hafiz Muhammad on our group project. He is a talented developer with strong skills in Flutter and software architecture. He is proactive, easy to work with, and consistently produces high-quality work. I strongly recommend him for any mobile development or software engineering role.',
+  },
+  {
+    name: 'Muhammad Faheem Akhter',
+    position: 'Collegue',
+    image: '/images/faheem.jpeg',
+    rating: 5,
+    text: 'I worked with Hafiz Muhammad in our university project group, where we built a mobile application using Flutter. He was a key technical asset to our team. Whenever we got stuck on complex logic or backend integration, Hafiz was the one to find the solution. He writes clean code and has a deep understanding of mobile development. I highly recommend him as a software engineer who knows how to deliver.',
+  },
+  {
+    name: 'Zaid Hassan',
+    position: 'Collegue',
+    image: '/images/zaid.jpeg',
+    rating: 5,
+    text: 'Hafiz is a fantastic team player. We worked together on a major group project, and I could always count on him to meet deadlines and put in extra effort to make sure our application ran smoothly. He communicates well and is always ready to help other team members. Any engineering team would be lucky to have someone as dedicated and cooperative as him.',
+  },
+  {
+    name: 'Abdullah Cheema',
+    position: 'Software Engineer',
+    image: '/images/abdullah.jpeg',
+    rating: 5,
+    text: 'Hafiz is an excellent developer with a real talent for mobile applications. During our time working together, I was impressed by his command of Flutter and his ability to turn complex requirements into smooth, functional user interfaces. He approaches problems with a logical mindset and brings creative solutions to the table. I highly recommend him for any mobile or software development role.',
+  },
+  {
+    name: 'Umair Altaf',
+    position: 'Collegue',
+    image: '/images/umair.jpeg',
+    rating: 5,
+    text: 'Hafiz is a highly versatile developer. During our time working together, I saw him handle everything from mobile development with Flutter to backend structures in Java and Spring Boot with ease. He writes clean, manageable code and adapts quickly to new requirements. He is a fantastic asset to any engineering team, and I would gladly work with him again.',
+  },
+];
+
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState<any[]>([]);
-  const cardStyle = {
-    background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
-    border: '1px solid rgba(148, 163, 184, 0.22)',
-    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
-  };
-
-  useEffect(() => {
-    const fetchTestimonials = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'testimonials'));
-        const testimonialsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setTestimonials(testimonialsData);
-      } catch (error) {
-        console.error('Error fetching testimonials:', error);
-      }
-    };
-
-    fetchTestimonials();
-  }, []);
-
-  const defaultTestimonials = [
-    {
-      name: 'John Doe',
-      position: 'CEO at Tech Corp',
-      image: '/testimonial1.jpg',
-      rating: 5,
-      text: 'Outstanding work! The project was delivered on time and exceeded all expectations. Highly professional and skilled developer.',
-    },
-    {
-      name: 'Jane Smith',
-      position: 'Product Manager at StartUp Inc',
-      image: '/testimonial2.jpg',
-      rating: 5,
-      text: 'Exceptional quality and attention to detail. Communication was excellent throughout the project. Would definitely work together again!',
-    },
-    {
-      name: 'Mike Johnson',
-      position: 'CTO at Digital Solutions',
-      image: '/testimonial3.jpg',
-      rating: 5,
-      text: 'A true professional with deep technical knowledge. The solution provided was scalable, efficient, and well-documented.',
-    },
-  ];
-
-  const displayTestimonials = testimonials.length > 0 ? testimonials : defaultTestimonials;
-
   return (
     <section id="testimonials" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +66,7 @@ const Testimonials = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayTestimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -89,7 +83,7 @@ const Testimonials = () => {
 
               {/* Rating */}
               <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating || 5)].map((_, i) => (
+                {[...Array(testimonial.rating)].map((_, i) => (
                   <FaStar key={i} className="text-amber-400" />
                 ))}
               </div>
@@ -102,14 +96,12 @@ const Testimonials = () => {
               {/* Client Info */}
               <div className="flex items-center">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden bg-slate-100 mr-4 border border-slate-200">
-                  {testimonial.image && (
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                    />
-                  )}
+                  <Image
+                    src={testimonial.image}
+                    alt={`${testimonial.name} — ${testimonial.position}`}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <h4 className="text-slate-900 font-semibold">{testimonial.name}</h4>
