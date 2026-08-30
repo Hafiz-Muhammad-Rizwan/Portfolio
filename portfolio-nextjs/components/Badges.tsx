@@ -64,7 +64,7 @@ const Badges = () => {
   const [selectedBadge, setSelectedBadge] = useState<Badge | null>(null);
 
   return (
-    <section id="badges" className="py-16 sm:py-24 relative overflow-hidden">
+    <section id="badges" className="py-16 sm:py-24 relative overflow-x-hidden">
 
       {/* Ambient blobs — hidden on very small screens for perf */}
       <div
@@ -82,8 +82,8 @@ const Badges = () => {
 
         {/* ── Section header ── */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-14"
@@ -122,8 +122,8 @@ const Badges = () => {
             return (
               <motion.div
                 key={badge.id}
-                initial={{ opacity: 0, y: 28, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.45, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -6, scale: 1.02 }}
@@ -158,6 +158,7 @@ const Badges = () => {
                         src={badge.imageUrl}
                         alt={`${badge.name} digital badge — ${badge.issuer}`}
                         fill
+                        sizes="(max-width: 1024px) 112px, 112px"
                         className="object-contain p-1 group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
@@ -209,9 +210,9 @@ const Badges = () => {
           >
             <motion.div
               key="modal"
-              initial={{ opacity: 0, scale: 0.85, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.85, y: 20 }}
+              initial={{ opacity: 0, scale: 0.88 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.88 }}
               transition={{ type: 'spring', stiffness: 300, damping: 28 }}
               className="relative w-full max-w-xs sm:max-w-sm rounded-2xl sm:rounded-3xl overflow-hidden"
               style={{
@@ -233,9 +234,9 @@ const Badges = () => {
                 <FaTimes className="text-sm" />
               </button>
 
-              {/* Large badge image */}
-              <div className="flex justify-center py-6 sm:py-10 px-6 sm:px-8">
-                <div className="relative w-36 h-36 sm:w-52 sm:h-52">
+              {/* Badge image — fixed height parent so fill always works */}
+              <div className="flex justify-center pt-6 sm:pt-8 pb-4 px-6 sm:px-8">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44">
                   <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${selectedBadge.color} opacity-15 blur-2xl`} />
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
                     <Image
@@ -243,6 +244,7 @@ const Badges = () => {
                       alt={`${selectedBadge.name} badge enlarged view`}
                       fill
                       className="object-contain p-2"
+                      sizes="(max-width: 480px) 144px, 176px"
                     />
                   </div>
                 </div>

@@ -103,13 +103,13 @@ const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
 
   return (
-    <section id="certifications" className="py-16 sm:py-20 relative">
+    <section id="certifications" className="py-16 sm:py-20 relative overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Header ── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-14"
@@ -128,8 +128,8 @@ const Certifications = () => {
             return (
               <motion.div
                 key={cert.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
                 viewport={{ once: true }}
                 className="rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] group cursor-pointer flex flex-col"
@@ -142,6 +142,7 @@ const Certifications = () => {
                     src={cert.imageUrl}
                     alt={`${cert.name} certificate — ${cert.issuer}`}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-400"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/25 to-transparent" />
@@ -214,16 +215,16 @@ const Certifications = () => {
           >
             <motion.div
               key="modal"
-              initial={{ opacity: 0, scale: 0.9, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 16 }}
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92 }}
               transition={{ type: 'spring', stiffness: 300, damping: 26 }}
-              className="rounded-xl w-full max-w-3xl overflow-hidden flex flex-col max-h-[90vh]"
-              style={cardStyle}
+              className="rounded-xl w-full max-w-3xl overflow-y-auto overflow-x-hidden"
+              style={{ ...cardStyle, maxHeight: '90vh' }}
               onClick={e => e.stopPropagation()}
             >
               {/* Close button */}
-              <div className="flex justify-end p-3 sm:p-4 flex-shrink-0">
+              <div className="flex justify-end p-3 sm:p-4">
                 <button
                   onClick={() => setSelectedCert(null)}
                   className="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-all"
@@ -233,13 +234,14 @@ const Certifications = () => {
                 </button>
               </div>
 
-              {/* Certificate image — scrollable container */}
-              <div className="relative w-full flex-1 min-h-0" style={{ height: 'clamp(180px, 40vw, 420px)' }}>
+              {/* Certificate image — fixed height so Next.js Image fill always works */}
+              <div className="relative w-full" style={{ height: '240px' }}>
                 <Image
                   src={selectedCert.imageUrl}
                   alt={`${selectedCert.name} certificate — ${selectedCert.issuer}`}
                   fill
                   className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 768px"
                 />
               </div>
 
