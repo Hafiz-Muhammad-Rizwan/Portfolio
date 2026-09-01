@@ -46,15 +46,13 @@ const Navbar = () => {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        // At top = white navbar (sits over light hero)
-        // Scrolled = dark frosted glass (sits over dark sections)
-        backgroundColor: scrolled ? 'rgba(6, 11, 23, 0.92)' : '#ffffff',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        backgroundColor: scrolled ? 'rgba(15, 14, 14, 0.92)' : 'rgba(15, 14, 14, 0.7)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
         borderBottom: scrolled
-          ? '1px solid rgba(0, 212, 255, 0.12)'
-          : '1px solid rgba(0,0,0,0.07)',
-        boxShadow: scrolled ? '0 4px 24px rgba(0,212,255,0.07)' : 'none',
+          ? '1px solid rgba(217, 119, 6, 0.15)'
+          : '1px solid rgba(255, 255, 255, 0.05)',
+        boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none',
         paddingTop:    scrolled ? '12px' : '18px',
         paddingBottom: scrolled ? '12px' : '18px',
       }}
@@ -63,22 +61,25 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="text-xl sm:text-2xl font-bold gradient-text">
-            Portfolio<span className="text-neon-blue">.</span>
+          <Link href="/" className="text-xl sm:text-2xl font-bold gradient-text font-display">
+            Portfolio<span style={{ color: '#D97706' }}>.</span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-5 lg:space-x-7">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
                 className="text-sm font-medium transition-colors duration-200 relative group"
-                style={{ color: scrolled ? '#d1d5db' : '#4b5563' }}
+                style={{ color: '#9E978F' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#E2A85C')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#9E978F')}
               >
                 {item.name}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full rounded-full" />
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px transition-all duration-300 group-hover:w-full rounded-full"
+                  style={{ background: 'linear-gradient(90deg, #D97706, #E2A85C)' }} />
               </a>
             ))}
           </div>
@@ -86,7 +87,8 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-2xl focus:outline-none text-neon-blue"
+            className="md:hidden text-2xl focus:outline-none transition-colors duration-200"
+            style={{ color: '#E2A85C' }}
             aria-label="Toggle menu"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
@@ -96,11 +98,11 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div
-            className="md:hidden mt-4 mb-2 rounded-xl overflow-hidden border animate-slideIn"
+            className="md:hidden mt-4 mb-2 rounded-xl overflow-hidden animate-slideIn"
             style={{
-              backgroundColor: scrolled ? 'rgba(6,11,23,0.97)' : '#ffffff',
-              borderColor: 'rgba(0, 212, 255, 0.15)',
-              boxShadow: '0 8px 32px rgba(0,212,255,0.08)',
+              backgroundColor: 'rgba(24, 22, 21, 0.97)',
+              border: '1px solid rgba(217,119,6,0.15)',
+              boxShadow: '0 16px 48px rgba(0,0,0,0.5)',
             }}
           >
             {navItems.map((item) => (
@@ -110,11 +112,17 @@ const Navbar = () => {
                 onClick={(e) => scrollToSection(e, item.href)}
                 className="block px-5 py-3 text-sm font-medium transition-all duration-200 border-b last:border-b-0"
                 style={{
-                  color: scrolled ? '#d1d5db' : '#4b5563',
-                  borderColor: scrolled ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)',
+                  color: '#9E978F',
+                  borderColor: 'rgba(255,255,255,0.05)',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#00d4ff')}
-                onMouseLeave={e => (e.currentTarget.style.color = scrolled ? '#d1d5db' : '#4b5563')}
+                onMouseEnter={e => {
+                  e.currentTarget.style.color = '#E2A85C';
+                  e.currentTarget.style.backgroundColor = 'rgba(217,119,6,0.06)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.color = '#9E978F';
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }}
               >
                 {item.name}
               </a>

@@ -1,20 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
-
-const cardStyle = {
-  background: 'linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.96) 100%)',
-  border: '1px solid rgba(148, 163, 184, 0.22)',
-  boxShadow: '0 12px 30px rgba(15, 23, 42, 0.08)',
-};
+import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 const experiences = [
   {
     title: 'Founding DevOps Engineer',
     company: 'Sevteq Solutions',
     location: 'Remote',
-    startDate: '2026-2',
+    startDate: 'Feb 2026',
     endDate: 'Present',
     current: true,
     description: 'Co-founded Sevteq and own all cloud infrastructure architecture decisions, deployment pipelines, security, and cost.',
@@ -28,8 +22,8 @@ const experiences = [
     title: 'Teaching Assistant',
     company: 'NUCES FAST',
     location: 'Pakistan',
-    startDate: '2025-8',
-    endDate: '2026-5',
+    startDate: 'Aug 2025',
+    endDate: 'May 2026',
     current: false,
     description: 'Supported 100+ students across Operating Systems, Database Systems, Discrete Structures, and ICT over two semesters.',
     achievements: [
@@ -41,8 +35,8 @@ const experiences = [
     title: 'Flutter Developer Intern',
     company: 'IPS Technologies',
     location: 'Remote',
-    startDate: '2025-4',
-    endDate: '2025-8',
+    startDate: 'Apr 2025',
+    endDate: 'Aug 2025',
     current: false,
     description: 'Leading the development of cross-platform mobile solutions like Roomatch Pk and Real Couple.',
     achievements: [
@@ -64,61 +58,107 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="section-heading text-4xl md:text-5xl font-bold mb-3">
             Work Experience
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-teal-400 via-sky-500 to-cyan-400 mx-auto"></div>
+          <div className="amber-underline mx-auto" />
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative pl-8 pb-12 last:pb-0"
+              className="relative pl-8 pb-10 last:pb-0"
             >
-              {/* Timeline Line */}
+              {/* Timeline line */}
               {index !== experiences.length - 1 && (
-                <div className="absolute left-0 top-8 bottom-0 w-0.5 bg-gradient-to-b from-neon-blue to-neon-purple"></div>
+                <div
+                  className="absolute left-0 top-8 bottom-0 w-px"
+                  style={{ background: 'linear-gradient(180deg, rgba(217,119,6,0.5), rgba(226,168,92,0.1))' }}
+                />
               )}
 
-              {/* Timeline Dot */}
-              <div className="absolute left-0 top-2 w-4 h-4 -translate-x-1/2">
-                <div className="w-full h-full rounded-full bg-neon-blue shadow-neon-blue"></div>
+              {/* Timeline dot */}
+              <div className="absolute left-0 top-3 -translate-x-1/2">
+                <div
+                  className="w-3.5 h-3.5 rounded-full animate-pulse-amber"
+                  style={{ background: 'linear-gradient(135deg, #D97706, #E2A85C)' }}
+                />
               </div>
 
+              {/* Card */}
               <div
-                className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.12)]"
-                style={cardStyle}
+                className="rounded-xl p-6 transition-all duration-300"
+                style={{
+                  background: '#181615',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = 'rgba(217,119,6,0.3)';
+                  el.style.boxShadow = '0 0 22px -6px rgba(217,119,6,0.15)';
+                  el.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = 'rgba(255,255,255,0.07)';
+                  el.style.boxShadow = 'none';
+                  el.style.transform = 'translateY(0)';
+                }}
               >
-                <div className="flex flex-wrap justify-between items-start mb-4">
+                {/* Header row */}
+                <div className="flex flex-wrap justify-between items-start gap-3 mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{exp.title}</h3>
-                    <div className="flex items-center text-[#06B6D4] mb-2">
-                      <FaBriefcase className="mr-2" />
-                      <span className="font-semibold">{exp.company}</span>
-                      {exp.location && <span className="ml-2 text-slate-400">• {exp.location}</span>}
+                    <h3 className="text-lg font-bold mb-1 font-display" style={{ color: '#F5F2EB', letterSpacing: '-0.01em' }}>
+                      {exp.title}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-3 text-sm">
+                      <span className="flex items-center gap-1.5" style={{ color: '#D97706' }}>
+                        <FaBriefcase className="text-xs" />
+                        {exp.company}
+                      </span>
+                      <span className="flex items-center gap-1" style={{ color: '#706860' }}>
+                        <FaMapMarkerAlt className="text-xs" />
+                        {exp.location}
+                      </span>
                     </div>
                   </div>
-                  <div className="flex items-center text-[#06B6D4] mt-2 md:mt-0">
-                    <FaCalendarAlt className="mr-2" />
-                    <span>
-                      {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
-                    </span>
+                  {/* Date badge */}
+                  <div
+                    className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium flex-shrink-0"
+                    style={{
+                      color: exp.current ? '#D97706' : '#9E978F',
+                      background: exp.current ? 'rgba(217,119,6,0.1)' : 'rgba(255,255,255,0.04)',
+                      border: exp.current ? '1px solid rgba(217,119,6,0.3)' : '1px solid rgba(255,255,255,0.06)',
+                    }}
+                  >
+                    <FaCalendarAlt className="text-[10px]" />
+                    {exp.startDate} – {exp.current ? 'Present' : exp.endDate}
+                    {exp.current && (
+                      <span
+                        className="ml-1 w-1.5 h-1.5 rounded-full inline-block"
+                        style={{ background: '#D97706' }}
+                      />
+                    )}
                   </div>
                 </div>
 
-                <p className="text-slate-600 mb-4">{exp.description}</p>
+                {/* Description */}
+                <p className="text-sm mb-4 leading-relaxed" style={{ color: '#9E978F' }}>
+                  {exp.description}
+                </p>
 
+                {/* Achievements */}
                 {exp.achievements && exp.achievements.length > 0 && (
                   <ul className="space-y-2">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start text-slate-600">
-                        <span className="text-[#3B82F6] mr-2">▹</span>
-                        {achievement}
+                    {exp.achievements.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-sm" style={{ color: '#C7BFB5' }}>
+                        <span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full" style={{ background: '#D97706', marginTop: '7px' }} />
+                        {item}
                       </li>
                     ))}
                   </ul>

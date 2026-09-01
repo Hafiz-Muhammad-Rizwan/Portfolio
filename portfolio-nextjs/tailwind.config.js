@@ -7,33 +7,64 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans:    ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'],
+      },
       colors: {
+        /* ── Espresso dark palette ── */
+        espresso: {
+          950: '#0F0E0E',   // primary bg
+          900: '#181615',   // surface
+          800: '#1F1C1A',   // elevated card
+          700: '#2A2624',   // border solid
+          600: '#3A3532',   // lighter border
+        },
+        /* ── Amber / bronze accent ── */
+        amber: {
+          DEFAULT: '#D97706',
+          light:   '#E2A85C',
+          pale:    '#F5C87A',
+          glow:    'rgba(217,119,6,0.12)',
+        },
+        /* ── Text palette ── */
+        warm: {
+          100: '#F5F2EB',   // headings
+          200: '#E8E2D9',
+          300: '#C7BFB5',   // body
+          400: '#9E978F',   // muted
+          500: '#706860',
+        },
+        /* ── Legacy neon kept for any residual refs ── */
         neon: {
-          blue:   '#00d4ff',   // electric cyan  — primary accent
-          purple: '#a855f7',   // vivid purple   — secondary
-          pink:   '#f472b6',   // hot pink       — tertiary
-          green:  '#34d399',   // emerald        — success/gpa
-          yellow: '#fbbf24',   // amber          — star ratings
+          blue:   '#D97706',
+          purple: '#E2A85C',
+          pink:   '#F5C87A',
+          green:  '#D97706',
+          yellow: '#E2A85C',
         },
         dark: {
-          100: '#060b17',   // deepest bg
-          200: '#0d1427',   // section bg
-          300: '#111d35',   // elevated card
-          400: '#1a2a4a',   // border / divider
+          100: '#0F0E0E',
+          200: '#181615',
+          300: '#1F1C1A',
+          400: '#2A2624',
         },
       },
       boxShadow: {
-        // Vivid neon glow shadows
-        'neon-blue':   '0 0 18px rgba(0, 212, 255, 0.55),  0 0 40px rgba(0, 212, 255, 0.25)',
-        'neon-purple': '0 0 18px rgba(168, 85, 247, 0.55), 0 0 40px rgba(168, 85, 247, 0.25)',
-        'neon-pink':   '0 0 18px rgba(244, 114, 182, 0.55),0 0 40px rgba(244, 114, 182, 0.25)',
-        'neon-green':  '0 0 18px rgba(52, 211, 153, 0.55), 0 0 40px rgba(52, 211, 153, 0.25)',
+        'amber-sm':  '0 0 12px rgba(217,119,6,0.18)',
+        'amber':     '0 0 25px -5px rgba(217,119,6,0.12)',
+        'amber-lg':  '0 0 40px rgba(217,119,6,0.22)',
+        'card':      '0 8px 32px rgba(0,0,0,0.35)',
+        'card-hover':'0 20px 48px rgba(0,0,0,0.4)',
       },
       animation: {
-        'glow':    'glow 2s ease-in-out infinite alternate',
-        'float':   'float 3s ease-in-out infinite',
-        'slideIn': 'slideIn 0.3s ease-out',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'glow':         'glow 2s ease-in-out infinite alternate',
+        'float':        'float 3s ease-in-out infinite',
+        'slideIn':      'slideIn 0.3s ease-out',
+        'pulse-slow':   'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-amber':  'pulse-amber 2s ease-in-out infinite',
+        'marquee':      'marquee 28s linear infinite',
+        'marquee-rev':  'marquee-reverse 32s linear infinite',
       },
       keyframes: {
         glow: {
@@ -42,11 +73,19 @@ module.exports = {
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%':      { transform: 'translateY(-20px)' },
+          '50%':      { transform: 'translateY(-10px)' },
         },
         slideIn: {
           '0%':   { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        marquee: {
+          '0%':   { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          '0%':   { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
     },

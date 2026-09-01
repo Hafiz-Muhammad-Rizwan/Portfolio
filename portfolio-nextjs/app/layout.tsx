@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Toaster } from 'react-hot-toast'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', weight: ['700', '800', '900'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://hafizmuhammadrizwan.me'),
@@ -164,20 +165,21 @@ export default function RootLayout({
         />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL} />
       </head>
-      <body className={`${inter.className} animated-bg min-h-screen`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans min-h-screen`} style={{ background: '#0F0E0E' }}>
         <Navbar />
         <main className="relative">
           {children}
         </main>
         <Footer />
-        <Toaster 
+        <Toaster
           position="top-right"
           toastOptions={{
             duration: 3000,
             style: {
-              background: '#1a1a2e',
-              color: '#fff',
-              border: '1px solid #00f0ff',
+              background: '#181615',
+              color: '#F5F2EB',
+              border: '1px solid rgba(217,119,6,0.3)',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
             },
           }}
         />

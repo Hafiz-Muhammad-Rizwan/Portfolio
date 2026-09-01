@@ -8,28 +8,38 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      style={{ background: '#0F0E0E' }}
     >
-      {/* ── Ambient glow orbs ──────────────────────────────────── */}
+      {/* ── Ambient glow orbs ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Cyan orb — top-centre */}
+        {/* Warm amber orb — centre */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-[0.12] blur-[100px]"
-          style={{ background: 'radial-gradient(circle, #00d4ff 0%, transparent 70%)' }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07] blur-[120px]"
+          style={{ background: 'radial-gradient(circle, #D97706 0%, transparent 70%)' }}
         />
-        {/* Purple orb — top-right */}
+        {/* Gold orb — top-right */}
         <div
-          className="absolute -top-20 right-0 w-[400px] h-[400px] rounded-full opacity-[0.09] blur-[80px]"
-          style={{ background: 'radial-gradient(circle, #a855f7 0%, transparent 70%)' }}
+          className="absolute -top-20 right-0 w-[350px] h-[350px] rounded-full opacity-[0.05] blur-[90px]"
+          style={{ background: 'radial-gradient(circle, #E2A85C 0%, transparent 70%)' }}
         />
-        {/* Pink orb — bottom-left */}
+        {/* Deep amber — bottom-left */}
         <div
-          className="absolute bottom-0 -left-20 w-[350px] h-[350px] rounded-full opacity-[0.08] blur-[80px]"
-          style={{ background: 'radial-gradient(circle, #f472b6 0%, transparent 70%)' }}
+          className="absolute bottom-0 -left-20 w-[300px] h-[300px] rounded-full opacity-[0.04] blur-[90px]"
+          style={{ background: 'radial-gradient(circle, #D97706 0%, transparent 70%)' }}
+        />
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(226,168,92,0.3) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(226,168,92,0.3) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px',
+          }}
         />
       </div>
 
-      {/* ── Content ─────────────────────────────────────────────── */}
+      {/* ── Content ── */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
 
@@ -37,24 +47,26 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             className="mb-8 flex justify-center"
           >
             <div className="relative">
-              {/* Glowing ring */}
+              {/* Amber glowing ring */}
               <div
-                className="absolute -inset-1 rounded-full blur-sm opacity-70"
-                style={{ background: 'linear-gradient(135deg, #00d4ff, #a855f7, #f472b6)' }}
+                className="absolute -inset-[3px] rounded-full blur-[6px] opacity-60"
+                style={{ background: 'linear-gradient(135deg, #D97706, #E2A85C, #F5C87A)' }}
               />
+              <div className="absolute -inset-[1px] rounded-full"
+                style={{ background: 'linear-gradient(135deg, #D97706, #E2A85C)' }} />
               <Image
                 src="/images/hafiz-muhammad-rizwan-devops-engineer.png"
                 alt="Hafiz Muhammad Rizwan, AWS DevOps and Cloud Engineer"
-                width={200}
-                height={200}
+                width={180}
+                height={180}
                 className="relative rounded-full"
                 style={{
-                  border: '3px solid rgba(0,212,255,0.6)',
-                  boxShadow: '0 0 32px rgba(0,212,255,0.3), 0 0 64px rgba(168,85,247,0.15)',
+                  border: '3px solid #0F0E0E',
+                  boxShadow: '0 0 40px rgba(217,119,6,0.25), 0 0 80px rgba(217,119,6,0.08)',
                 }}
                 priority
               />
@@ -65,10 +77,11 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
           >
-            <p className="text-sm sm:text-base md:text-lg font-semibold mb-4 tracking-widest uppercase text-neon-blue">
-              DevOps Engineer | Cloud &amp; Automation
+            <p className="text-sm sm:text-base font-semibold mb-4 tracking-[0.2em] uppercase"
+               style={{ color: '#D97706', letterSpacing: '0.18em' }}>
+              DevOps Engineer · Cloud & Automation
             </p>
           </motion.div>
 
@@ -76,13 +89,18 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h1
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gray-900"
-              style={{ letterSpacing: '-0.02em', lineHeight: 1.08 }}
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 font-display"
+              style={{
+                letterSpacing: '-0.02em',
+                lineHeight: 1.05,
+                color: '#F5F2EB',
+              }}
             >
-              Hafiz Muhammad Rizwan
+              Hafiz Muhammad{' '}
+              <span className="gradient-text">Rizwan</span>
             </h1>
           </motion.div>
 
@@ -90,9 +108,10 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
           >
-            <p className="text-base sm:text-xl md:text-2xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed"
+               style={{ color: '#9E978F' }}>
               I make sure your app stays up while everyone else is asleep.
             </p>
           </motion.div>
@@ -104,16 +123,10 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-wrap justify-center gap-4 mb-12"
           >
-            <a
-              href="#contact"
-              className="btn-neon border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-white hover:shadow-neon-blue"
-            >
+            <a href="#contact" className="btn-amber-solid">
               Get In Touch
             </a>
-            <a
-              href="#projects"
-              className="btn-neon border-neon-purple text-neon-purple hover:bg-neon-purple hover:text-white hover:shadow-neon-purple"
-            >
+            <a href="#projects" className="btn-amber">
               View Projects
             </a>
           </motion.div>
@@ -122,21 +135,44 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.75 }}
             className="flex justify-center space-x-6"
           >
-            <a href="https://github.com/Hafiz-Muhammad-Rizwan"         target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-blue  transition-all duration-300 hover:animate-glow"><FaGithub   /></a>
-            <a href="https://www.linkedin.com/in/hafiz-muhammad-rizwanrizwan-33328a374" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-blue  transition-all duration-300 hover:animate-glow"><FaLinkedin /></a>
-            <a href="https://twitter.com/hafizrizwan"                  target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-neon-purple transition-all duration-300 hover:animate-glow"><FaTwitter  /></a>
-            <a href="mailto:hafizmuhammadrizwan359@gmail.com"                                                    className="text-3xl text-gray-400 hover:text-neon-pink   transition-all duration-300 hover:animate-glow"><FaEnvelope /></a>
+            {[
+              { icon: FaGithub,   href: 'https://github.com/Hafiz-Muhammad-Rizwan' },
+              { icon: FaLinkedin, href: 'https://www.linkedin.com/in/hafiz-muhammad-rizwanrizwan-33328a374' },
+              { icon: FaTwitter,  href: 'https://twitter.com/hafizrizwan' },
+              { icon: FaEnvelope, href: 'mailto:hafizmuhammadrizwan359@gmail.com' },
+            ].map(({ icon: Icon, href }, i) => (
+              <a
+                key={i}
+                href={href}
+                target={href.startsWith('mailto') ? undefined : '_blank'}
+                rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                className="text-3xl transition-all duration-300"
+                style={{ color: '#706860' }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.color = '#E2A85C';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.color = '#706860';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                }}
+              >
+                <Icon />
+              </a>
+            ))}
           </motion.div>
         </div>
       </div>
 
-      {/* ── Scroll Indicator ────────────────────────────────────── */}
+      {/* ── Scroll Indicator ── */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-        <div className="w-6 h-10 border-2 border-neon-blue rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-neon-blue rounded-full mt-2 animate-bounce" />
+        <div className="w-6 h-10 rounded-full flex justify-center"
+             style={{ border: '1px solid rgba(217,119,6,0.4)' }}>
+          <div className="w-1 h-3 rounded-full mt-2 animate-bounce"
+               style={{ background: 'linear-gradient(180deg, #D97706, #E2A85C)' }} />
         </div>
       </div>
     </section>
