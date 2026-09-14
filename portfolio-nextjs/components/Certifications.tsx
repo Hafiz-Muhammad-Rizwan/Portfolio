@@ -27,6 +27,15 @@ const platformIconMap = {
 
 const certifications: Certification[] = [
   {
+    id: '8',
+    name: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    platform: 'aws',
+    issueDate: '2025',
+    imageUrl: '/images/AWS Certified Cloud Practitioner certificate_Hafiz-Muhammad-Rizwan.jpg',
+    accentColor: '#FF9900',
+  },
+  {
     id: '7',
     name: 'AWS Certified AI Practitioner',
     issuer: 'Amazon Web Services',
