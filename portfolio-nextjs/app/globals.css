@@ -3,26 +3,26 @@
 @tailwind utilities;
 
 /* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
 
 :root {
   /* ── Espresso Dark Palette ── */
-  --bg-primary:    #0F0E0E;   /* Deep charcoal espresso */
-  --bg-surface:    #181615;   /* Slightly lighter warm dark base */
-  --bg-elevated:   #1F1C1A;   /* Elevated card surface */
-  --border:        rgba(255, 255, 255, 0.07);
-  --border-solid:  #2A2624;
+  --bg-primary:    #131314;
+  --bg-surface:    #1C1B1C;
+  --bg-elevated:   #2A2A2B;
+  --border:        rgba(197, 199, 193, 0.16);
+  --border-solid:  #454843;
 
   /* ── Text ── */
-  --text-heading:  #F5F2EB;   /* Warm off-white */
-  --text-body:     #C7BFB5;   /* Warm light gray */
-  --text-muted:    #9E978F;   /* Muted warm gray */
+  --text-heading:  #FFFFFF;
+  --text-body:     #E5E2E3;
+  --text-muted:    #C5C7C1;
 
   /* ── Accent ── */
-  --amber:         #D97706;
-  --gold:          #E2A85C;
-  --amber-glow:    rgba(217, 119, 6, 0.12);
-  --amber-border:  rgba(217, 119, 6, 0.25);
+  --amber:         #E9C176;
+  --gold:          #E9C176;
+  --amber-glow:    rgba(233, 193, 118, 0.14);
+  --amber-border:  rgba(233, 193, 118, 0.32);
 }
 
 * {
@@ -33,14 +33,16 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 92px;
 }
 
 /* ── BODY ── */
 body {
   color: var(--text-body);
   background: var(--bg-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow-x: hidden;
+  min-width: 320px;
 }
 
 /* ── Ambient background gradient ── */
@@ -70,11 +72,114 @@ body::before {
 
 /* ── PREMIUM DARK GLASS CARD ── */
 .glass {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(31, 28, 26, 0.88), rgba(24, 22, 21, 0.72));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.02) inset,
     0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+section[id]:nth-of-type(even) {
+  background: rgba(14, 14, 15, 0.42) !important;
+}
+
+section[id] > .container,
+section[id] > div.container {
+  max-width: 80rem;
+}
+
+section[id] > .container > div:first-child,
+section[id] > div.container > div:first-child {
+  border-bottom: 1px solid rgba(69, 72, 67, 0.58);
+  padding-bottom: 1.25rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.section-heading {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 400 !important;
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  color: #fff !important;
+}
+
+.section-heading + .amber-underline {
+  margin: 0.5rem 0 0 !important;
+  width: 3rem;
+  background: var(--gold);
+}
+
+section[id] > .container > div:first-child > p,
+section[id] > div.container > div:first-child > p {
+  color: var(--text-muted) !important;
+}
+
+section[id] [style*="#181615"],
+section[id] [style*="#1F1C1A"] {
+  background: var(--bg-surface) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16) !important;
+}
+
+section[id] [style*="#F5F2EB"] {
+  color: #fff !important;
+}
+
+section[id] [style*="#C7BFB5"] {
+  color: var(--text-body) !important;
+}
+
+section[id] [style*="#9E978F"],
+section[id] [style*="#706860"] {
+  color: var(--text-muted) !important;
+}
+
+section[id] [style*="#D97706"],
+section[id] [style*="#E2A85C"],
+section[id] [style*="#F5C87A"] {
+  color: var(--gold) !important;
+}
+
+section[id] [style*="rgba(255,255,255,0.07)"] {
+  border-color: var(--border) !important;
+}
+
+section[id] [style*="rgba(217,119,6"] {
+  border-color: var(--amber-border) !important;
+}
+
+.font-display,
+.font-display-hero {
+  font-family: 'Newsreader', Georgia, serif !important;
+}
+
+.font-mono,
+[class*="text-xs"],
+[class*="text-[10px]"] {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+section[id] .rounded-xl,
+section[id] .rounded-lg {
+  border-radius: 0.5rem !important;
+}
+
+section[id] .group:hover {
+  transform: translateY(-4px);
+  border-color: var(--amber-border) !important;
 }
 
 /* ── SECTION CARD ── */
@@ -88,6 +193,28 @@ body::before {
   border-color: var(--amber-border);
   box-shadow: 0 0 25px -5px var(--amber-glow), 0 20px 40px rgba(0, 0, 0, 0.3);
   transform: translateY(-4px);
+}
+
+.section-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-shell::before {
+  content: '';
+  position: absolute;
+  inset: 4rem 8% auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(226, 168, 92, 0.2), transparent);
+  pointer-events: none;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
 }
 
 /* ── GRADIENT TEXT — amber/gold ── */
@@ -170,6 +297,16 @@ body::before {
   transform: translateY(-1px);
 }
 
+.btn-amber:focus-visible,
+.btn-amber-solid:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
 /* ── LEGACY btn-neon — keep working for any remaining usages ── */
 .btn-neon {
   position: relative;
@@ -215,6 +352,20 @@ body::before {
   animation: spin 0.9s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 /* ── ANIMATIONS ── */
 @keyframes fade-in-down {

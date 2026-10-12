@@ -44,29 +44,32 @@ const Navbar = () => {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-[#454843]/60 transition-all duration-500"
       style={{
-        backgroundColor: scrolled ? 'rgba(15, 14, 14, 0.92)' : 'rgba(15, 14, 14, 0.7)',
+        backgroundColor: scrolled ? 'rgba(15, 14, 14, 0.86)' : 'rgba(15, 14, 14, 0.5)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         borderBottom: scrolled
-          ? '1px solid rgba(217, 119, 6, 0.15)'
-          : '1px solid rgba(255, 255, 255, 0.05)',
+          ? '1px solid rgba(233, 193, 118, 0.25)'
+          : '1px solid rgba(69, 72, 67, 0.45)',
         boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none',
-        paddingTop:    scrolled ? '12px' : '18px',
-        paddingBottom: scrolled ? '12px' : '18px',
+        paddingTop:    scrolled ? '10px' : '18px',
+        paddingBottom: scrolled ? '10px' : '18px',
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="text-xl sm:text-2xl font-bold gradient-text font-display">
-            Portfolio<span style={{ color: '#D97706' }}>.</span>
+          <Link href="/" className="group flex items-center gap-2 text-xl sm:text-2xl font-bold text-warm-100 font-display">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full border border-amber/40 text-sm transition-transform duration-300 group-hover:rotate-12 group-hover:border-amber-light">
+              HR
+            </span>
+            <span>Hafiz<span className="gradient-text">.</span></span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-5 lg:space-x-7">
+          <div className="hidden xl:flex items-center space-x-5 lg:space-x-7">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -87,7 +90,7 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-2xl focus:outline-none transition-colors duration-200"
+            className="xl:hidden text-2xl focus:outline-none transition-colors duration-200"
             style={{ color: '#E2A85C' }}
             aria-label="Toggle menu"
           >
@@ -98,7 +101,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div
-            className="md:hidden mt-4 mb-2 rounded-xl overflow-hidden animate-slideIn"
+            className="xl:hidden mt-4 mb-2 rounded-xl overflow-hidden animate-slideIn"
             style={{
               backgroundColor: 'rgba(24, 22, 21, 0.97)',
               border: '1px solid rgba(217,119,6,0.15)',
