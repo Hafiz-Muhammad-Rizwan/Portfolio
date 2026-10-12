@@ -128,10 +128,17 @@ const badges: Badge[] = [
     icon: FaCloud,
     description: 'Completed Domain 4 practice assessment for AWS Certified Cloud Practitioner exam.',
   },
+  {
+    id: '12',
+    name: 'AWS Serverless Demonstrated',
+    category: 'Serverless Architecture',
+    issuer: 'Amazon Web Services',
+    imageUrl: '/images/aws-serverless-demonstrated-Hafiz Muhammad Rizwan.png',
+    accentColor: '#E9C176',
+    icon: FaCloud,
+    description: 'Demonstrates practical understanding of building and operating serverless solutions on AWS.',
+  },
 ];
-
-/* Duplicate badges for infinite loop */
-const trackBadges = [...badges, ...badges, ...badges, ...badges];
 
 const BadgeCarouselCard = ({
   badge,
@@ -144,8 +151,7 @@ const BadgeCarouselCard = ({
   return (
     <button
       onClick={onClick}
-      className="flex-shrink-0 cursor-pointer group"
-      style={{ width: '220px' }}
+      className="group w-full cursor-pointer"
       aria-label={`View ${badge.name} badge`}
     >
       <div
@@ -269,41 +275,35 @@ const Badges = () => {
             }}
           >
             <FaAws />
-            Amazon Web Services
+            AWS credentials
           </div>
 
           <h2 className="section-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-            AWS Badges
+            AWS Credentials
           </h2>
           <div className="amber-underline mx-auto" />
           <p className="mt-4 text-sm max-w-md mx-auto" style={{ color: '#9E978F' }}>
-            Verified digital badges earned through AWS skill-builder programs and official assessments.
+            Certifications and completed AWS learning programs.
           </p>
         </motion.div>
       </div>
 
-      {/* ── Continuous Carousel Row 1 → ── */}
-      <div className="marquee-wrapper mb-4">
-        <div className="marquee-track">
-          {trackBadges.map((badge, i) => (
-            <BadgeCarouselCard
-              key={`row1-${badge.id}-${i}`}
-              badge={badge}
-              onClick={() => setSelectedBadge(badge)}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* ── Continuous Carousel Row 2 ← (reversed) ── */}
-      <div className="marquee-wrapper">
-        <div className="marquee-track-reverse">
-          {[...trackBadges].reverse().map((badge, i) => (
-            <BadgeCarouselCard
-              key={`row2-${badge.id}-${i}`}
-              badge={badge}
-              onClick={() => setSelectedBadge(badge)}
-            />
+      {/* ── Simple badge grid ── */}
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          {badges.map((badge, index) => (
+            <motion.div
+              key={badge.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: index * 0.04 }}
+              viewport={{ once: true }}
+            >
+              <BadgeCarouselCard
+                badge={badge}
+                onClick={() => setSelectedBadge(badge)}
+              />
+            </motion.div>
           ))}
         </div>
       </div>

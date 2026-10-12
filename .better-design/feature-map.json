@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "product": "My Portfolio",
+  "features": [
+    {
+      "id": "home",
+      "name": "Home",
+      "flows": [
+        {
+          "id": "view-home",
+          "name": "View home",
+          "steps": [
+            {
+              "name": "Home",
+              "route": "/",
+              "screen": "portfolio-nextjs/app/page.tsx",
+              "components": [
+                "portfolio-nextjs/components/Navbar.tsx",
+                "portfolio-nextjs/components/Hero.tsx",
+                "portfolio-nextjs/components/About.tsx",
+                "portfolio-nextjs/components/Skills.tsx",
+                "portfolio-nextjs/components/Experience.tsx",
+                "portfolio-nextjs/components/Education.tsx",
+                "portfolio-nextjs/components/Projects.tsx",
+                "portfolio-nextjs/components/Certifications.tsx",
+                "portfolio-nextjs/components/Badges.tsx",
+                "portfolio-nextjs/components/Testimonials.tsx",
+                "portfolio-nextjs/components/Contact.tsx",
+                "portfolio-nextjs/components/Footer.tsx"
+              ],
+              "data": [
+                "portfolio-nextjs/app/api/contact/route.ts"
+              ]
+            }
+          ]
+        }
+      ],
+      "components": []
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const stats = [
-  { label: 'Years Experience', value: '1+' },
+  { label: 'Years Experience', value: '2+' },
   { label: 'Projects Completed', value: '15+' },
   { label: 'Happy Clients', value: '2+' },
   { label: 'Awards Won', value: '2+' },
